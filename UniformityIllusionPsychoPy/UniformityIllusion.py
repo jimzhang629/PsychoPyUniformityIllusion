@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on July 05, 2021, at 15:19
+    on July 07, 2021, at 16:25
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -28,14 +28,8 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
-
 import zmq
 from msgpack import loads
-
-
-# specify the name of the surface you want to use
-surface_name = "monitor"
-
 
 context = zmq.Context()
 # open a req port to talk to pupil
@@ -52,21 +46,20 @@ sub = context.socket(zmq.SUB)
 sub.connect("tcp://{}:{}".format(addr, sub_port))
 sub.setsockopt_string(zmq.SUBSCRIBE, "surface")
 
-#set pupil time to psychopy time
-time_fn = core.monotonicClock.getTime
-pupil_remote.send_string("T" + str(time_fn()))
-print(pupil_remote.recv_string())
+# specify the name of the surface you want to use
+surface_name = "monitor"
+is_gaze_on_surface = True
+
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
-print(_thisDir)
+
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 expName = 'UniformityIllusion'  # from the Builder filename that created this script
 expInfo = {'participant': '', 'session': '001'}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
-
 if dlg.OK == False:
     core.quit()  # user pressed cancel
 expInfo['date'] = data.getDateStr()  # add a simple timestamp
@@ -79,7 +72,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\Uniformity Illusion PsychoPy\\UniformityIllusion.py',
+    originPath='C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\UniformityIllusion.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -98,7 +91,6 @@ win = visual.Window(
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
     units='height')
-    
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
@@ -159,28 +151,6 @@ Thanks_Clock = core.Clock()
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
-def is_looking_at_surface(surface_name):
-    
-    topic = sub.recv_string()
-    msg = sub.recv()  # bytes
-    surfaces = loads(msg, raw=False)
-    print(surfaces)
-    filtered_surface = {
-        k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
-    }
-    # note that we may have more than one gaze position data point (this is expected behavior)
-
-    gaze_positions = filtered_surface["gaze_on_surfaces"]
-
-    for gaze_pos in gaze_positions:
-        norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
-
-        # only print normalized gaze positions within the surface bounds
-        if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
-            return True
-        else:
-            return False
-
 # ------Prepare to start Routine "Welcome"-------
 continueRoutine = True
 routineTimer.add(2.000000)
@@ -194,7 +164,6 @@ for thisComponent in WelcomeComponents:
     thisComponent.tStopRefresh = None
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
-        
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
@@ -209,7 +178,7 @@ while continueRoutine and routineTimer.getTime() > 0:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
-        
+    
     # *WelcomeText* updates
     if WelcomeText.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
@@ -396,8 +365,29 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # check if participant is looking at the desired surface
-        if is_looking_at_surface(surface_name):
+        #do pupil stuff
+  
+        topic = sub.recv_string()
+        msg = sub.recv()  # bytes
+        surfaces = loads(msg, raw=False)
+        filtered_surface = {
+            k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
+        }
+        
+        try:
+            # note that we may have more than one gaze position data point (this is expected behavior)
+            gaze_positions = filtered_surface["gaze_on_surfaces"]
+            for gaze_pos in gaze_positions:
+                norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
+
+                # only print normalized gaze positions within the surface bounds
+                if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
+                    is_gaze_on_surface = True
+                else:
+                    is_gaze_on_surface = False
+        except:
+            pass
+        if is_gaze_on_surface:    
             # *image* updates
             if image.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
@@ -416,7 +406,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                     image.setAutoDraw(False)
             if image.status == STARTED:  # only update if drawing
                 image.setOpacity(frameN/120)
-
+            
             # *text* updates
             if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
@@ -425,7 +415,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 text.tStartRefresh = tThisFlipGlobal  # on global time
                 win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
                 text.setAutoDraw(True)
-
+            
             # *key_resp* updates
             waitOnFlip = False
             if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -447,26 +437,25 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                     key_resp.rt = _key_resp_allKeys[-1].rt
                     # a response ends the routine
                     continueRoutine = False
-
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Practice_TrialsComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
         else:
-            print("Please look at the {surface_name}")
             continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Practice_TrialsComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen  
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
     
     # -------Ending Routine "Practice_Trials"-------
     for thisComponent in Practice_TrialsComponents:
@@ -536,27 +525,24 @@ for thisTestTrialsLoop in TestTrialsLoop:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-        if is_looking_at_surface(surface_name):
-            # check for quit (typically the Esc key)
-            if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-                core.quit()
-
-            # check if all components have finished
-            if not continueRoutine:  # a component has requested a forced-end of Routine
-                break
-            continueRoutine = False  # will revert to True if at least one component still running
-            for thisComponent in Test_TrialsComponents:
-                if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                    continueRoutine = True
-                    break  # at least one component has not yet finished
-
-            # refresh the screen
-            if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()
-        else:
-            print("Please look at the {surface_name}")
-            continueRoutine = False
-            
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in Test_TrialsComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
     # -------Ending Routine "Test_Trials"-------
     for thisComponent in Test_TrialsComponents:
         if hasattr(thisComponent, "setAutoDraw"):

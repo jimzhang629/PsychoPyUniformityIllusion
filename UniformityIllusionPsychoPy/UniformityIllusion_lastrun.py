@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on July 07, 2021, at 13:45
+    on July 07, 2021, at 15:38
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -51,7 +51,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\Uniformity Illusion PsychoPy\\UniformityIllusion.py',
+    originPath='C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\UniformityIllusion_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -89,18 +89,6 @@ WelcomeText = visual.TextStim(win=win, name='WelcomeText',
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
-
-# Initialize components for Routine "Questionnaire"
-QuestionnaireClock = core.Clock()
-win.allowStencil = True
-DepressionQuestionnaire = visual.Form(win=win, name='DepressionQuestionnaire',
-    items='.csv',
-    textHeight=0.03,
-    randomize=False,
-    size=(1, 0.7),
-    pos=(0, 0),
-    style='dark',
-    itemPadding=0.05,)
 
 # Initialize components for Routine "Instructions"
 InstructionsClock = core.Clock()
@@ -210,68 +198,6 @@ for thisComponent in WelcomeComponents:
         thisComponent.setAutoDraw(False)
 thisExp.addData('WelcomeText.started', WelcomeText.tStartRefresh)
 thisExp.addData('WelcomeText.stopped', WelcomeText.tStopRefresh)
-
-# ------Prepare to start Routine "Questionnaire"-------
-continueRoutine = True
-# update component parameters for each repeat
-# keep track of which components have finished
-QuestionnaireComponents = [DepressionQuestionnaire]
-for thisComponent in QuestionnaireComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-QuestionnaireClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine "Questionnaire"-------
-while continueRoutine:
-    # get current time
-    t = QuestionnaireClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=QuestionnaireClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *DepressionQuestionnaire* updates
-    if DepressionQuestionnaire.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        DepressionQuestionnaire.frameNStart = frameN  # exact frame index
-        DepressionQuestionnaire.tStart = t  # local t and not account for scr refresh
-        DepressionQuestionnaire.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(DepressionQuestionnaire, 'tStartRefresh')  # time at next scr refresh
-        DepressionQuestionnaire.setAutoDraw(True)
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in QuestionnaireComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "Questionnaire"-------
-for thisComponent in QuestionnaireComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-DepressionQuestionnaire.addDataToExp(thisExp, 'rows')
-DepressionQuestionnaire.autodraw = False
-# the Routine "Questionnaire" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
 
 # ------Prepare to start Routine "Instructions"-------
 continueRoutine = True

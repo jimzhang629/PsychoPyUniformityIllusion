@@ -207,7 +207,6 @@
   </Routines>
   <Flow>
     <Routine name="Welcome"/>
-    <Routine name="Questionnaire"/>
     <Routine name="Instructions"/>
     <LoopInitiator loopType="TrialHandler" name="PracticeTrialsLoop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
