@@ -1,0 +1,6 @@
+﻿WelcomeText.started,WelcomeText.stopped,DepressionQuestionnaire.index,DepressionQuestionnaire.itemText,DepressionQuestionnaire.type,DepressionQuestionnaire.response,DepressionQuestionnaire.rt,button.started,button.stopped,button.numClicks,button.timesOn,button.timesOff,participant,session,date,expName,psychopyVersion,frameRate,
+8.273016800012556,None,1,Type an random number for your ID,free text,d,None,,,,,,d,001,2021_Jul_08_1059,UniformityIllusion,2021.1.4,60.277457133945674,
+,,2,Please select your age,radio,None,None,,,,,,d,001,2021_Jul_08_1059,UniformityIllusion,2021.1.4,60.277457133945674,
+,,3,How many siblings do you have,radio,None,None,,,,,,d,001,2021_Jul_08_1059,UniformityIllusion,2021.1.4,60.277457133945674,
+,,4,Please select your current mood,slider,None,None,,,,,,d,001,2021_Jul_08_1059,UniformityIllusion,2021.1.4,60.277457133945674,
+,,,,,,,10.355266600003233,None,1,[5.848460599998361],[5.848464900002],,,,,,,

@@ -1,0 +1,3 @@
+﻿WelcomeText.started,WelcomeText.stopped,DepressionQuestionnaire.index,DepressionQuestionnaire.itemText,DepressionQuestionnaire.type,DepressionQuestionnaire.Scoring,DepressionQuestionnaire.response,DepressionQuestionnaire.rt,button.started,button.stopped,button.numClicks,button.timesOn,button.timesOff,participant,session,date,expName,psychopyVersion,frameRate,
+7.757062399999995,None,Sadness,d,choice,"0,1,2,3",None,None,,,,,,,001,2021_Jul_12_1256,UniformityIllusion,2021.1.4,60.00668474493523,
+,,,,,,,,9.80643560000135,None,1,[2.200331100000767],[2.2003371000009793],,,,,,,

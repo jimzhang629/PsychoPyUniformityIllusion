@@ -1,0 +1,98 @@
+1.0457 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+6.4304 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000023DC12F4E10>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000023DC12CD4A8>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+6.4306 	EXP 	window1: mouseVisible = True
+6.4306 	EXP 	window1: recordFrameIntervals = False
+6.5950 	EXP 	window1: recordFrameIntervals = True
+6.7789 	EXP 	window1: recordFrameIntervals = False
+7.2859 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Welcome to our Study!', units='height', win=Window(...), wrapWidth=1)
+7.3029 	EXP 	Imported test.xlsx as conditions, 1 conditions, 11 params
+7.3038 	EXP 	Question text: test
+7.3242 	EXP 	window1: mouseVisible = True
+7.3597 	EXP 	window1: mouseVisible = True
+7.3657 	EXP 	Created unnamed Rect = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=UNKNOWN, interpolate=True, lineColor=array([0, 0, 0]), lineColorSpace='rgb', lineRGB=UNKNOWN, lineWidth=1.5, name='unnamed Rect', opacity=0, ori=0.0, pos=array([0., 0.]), size=array([0., 0.]), units='height', vertices=ndarray(...), win=Window(...))
+7.3710 	EXP 	Created DepressionQuestionnaire = <psychopy.visual.form.Form object at 0x0000023DC3D68710>
+7.3995 	EXP 	window1: mouseVisible = True
+7.4144 	EXP 	Created instructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Any text\n\nincluding line breaks', units='height', win=Window(...), wrapWidth=1)
+7.4195 	EXP 	Created hasPeriphery = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='hasPeriphery', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+7.4228 	EXP 	Created noPeriphery = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='noPeriphery', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+7.4282 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+7.4322 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Welcome to our Study!', units='height', win=Window(...), wrapWidth=1)
+7.4346 	EXP 	Created hasPeriphery_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='hasPeriphery_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+7.4375 	EXP 	Created noPeriphery_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='noPeriphery_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+7.4407 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_2', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+7.4950 	EXP 	unnamed Form: autoLog = True
+7.4950 	EXP 	DepressionQuestionnaire: name = 'DepressionQuestionnaire'
+7.4950 	EXP 	DepressionQuestionnaire: size = (1, 1)
+7.4950 	EXP 	DepressionQuestionnaire: size = array([1., 1.])
+7.4950 	EXP 	DepressionQuestionnaire: units = 'height'
+7.4950 	EXP 	DepressionQuestionnaire: depth = 0
+7.4950 	EXP 	WelcomeText: autoDraw = True
+9.4782 	EXP 	WelcomeText: autoDraw = False
+9.4782 	EXP 	DepressionQuestionnaire: autoDraw = True
+10.8547 	DATA 	Mouse: wheel shift=(0,-1), pos=(944,601)
+10.8781 	DATA 	Mouse: wheel shift=(0,-2), pos=(943,601)
+10.9125 	DATA 	Mouse: wheel shift=(0,-2), pos=(943,601)
+10.9252 	DATA 	Mouse: wheel shift=(0,-1), pos=(943,601)
+10.9451 	DATA 	Mouse: wheel shift=(0,-1), pos=(943,601)
+10.9499 	DATA 	Mouse: wheel shift=(0,-1), pos=(943,601)
+11.3446 	DATA 	Mouse: wheel shift=(0,-2), pos=(928,572)
+11.3539 	DATA 	Mouse: wheel shift=(0,-1), pos=(928,572)
+11.3779 	DATA 	Mouse: wheel shift=(0,-2), pos=(928,572)
+11.3821 	DATA 	Mouse: wheel shift=(0,-1), pos=(928,572)
+11.4119 	DATA 	Mouse: wheel shift=(0,-2), pos=(928,572)
+11.7775 	DATA 	Mouse: wheel shift=(0,-2), pos=(972,547)
+11.8114 	DATA 	Mouse: wheel shift=(0,-3), pos=(975,547)
+11.8150 	DATA 	Mouse: wheel shift=(0,-1), pos=(977,547)
+11.8452 	DATA 	Mouse: wheel shift=(0,-2), pos=(977,547)
+11.8456 	DATA 	Mouse: wheel shift=(0,-1), pos=(978,547)
+12.0877 	DATA 	Mouse: wheel shift=(0,1), pos=(977,547)
+12.1118 	DATA 	Mouse: wheel shift=(0,2), pos=(977,547)
+12.1217 	DATA 	Mouse: wheel shift=(0,1), pos=(977,547)
+12.1443 	DATA 	Mouse: wheel shift=(0,1), pos=(977,547)
+12.1537 	DATA 	Mouse: wheel shift=(0,1), pos=(976,547)
+12.1778 	DATA 	Mouse: wheel shift=(0,1), pos=(976,547)
+12.4451 	DATA 	Mouse: wheel shift=(0,-2), pos=(976,547)
+12.4490 	DATA 	Mouse: wheel shift=(0,-1), pos=(979,547)
+12.4549 	DATA 	Mouse: wheel shift=(0,-1), pos=(979,547)
+12.4781 	DATA 	Mouse: wheel shift=(0,-3), pos=(982,547)
+12.4879 	DATA 	Mouse: wheel shift=(0,-1), pos=(984,545)
+12.5120 	DATA 	Mouse: wheel shift=(0,-1), pos=(984,545)
+12.6120 	DATA 	Mouse: wheel shift=(0,3), pos=(985,545)
+12.6161 	DATA 	Mouse: wheel shift=(0,1), pos=(986,544)
+12.6449 	DATA 	Mouse: wheel shift=(0,2), pos=(986,544)
+12.6490 	DATA 	Mouse: wheel shift=(0,1), pos=(987,543)
+12.6776 	DATA 	Mouse: wheel shift=(0,1), pos=(987,543)
+12.7115 	DATA 	Mouse: wheel shift=(0,1), pos=(986,543)
+12.8107 	DATA 	Mouse: wheel shift=(0,-1), pos=(986,542)
+12.8151 	DATA 	Mouse: wheel shift=(0,-1), pos=(986,539)
+12.8446 	DATA 	Mouse: wheel shift=(0,-4), pos=(991,538)
+12.8490 	DATA 	Mouse: wheel shift=(0,-1), pos=(1004,533)
+12.8550 	DATA 	Mouse: wheel shift=(0,-1), pos=(1004,533)
+12.8779 	DATA 	Mouse: wheel shift=(0,-1), pos=(1004,533)
+12.9450 	DATA 	Mouse: wheel shift=(0,2), pos=(1004,533)
+12.9548 	DATA 	Mouse: wheel shift=(0,1), pos=(1004,533)
+12.9773 	DATA 	Mouse: wheel shift=(0,3), pos=(1004,533)
+12.9872 	DATA 	Mouse: wheel shift=(0,1), pos=(1004,533)
+13.0112 	DATA 	Mouse: wheel shift=(0,1), pos=(1004,533)
+13.1110 	DATA 	Mouse: wheel shift=(0,-1), pos=(1002,525)
+13.1208 	DATA 	Mouse: wheel shift=(0,-1), pos=(1011,516)
+13.1442 	DATA 	Mouse: wheel shift=(0,-4), pos=(1015,513)
+13.1538 	DATA 	Mouse: wheel shift=(0,-1), pos=(1024,508)
+13.1781 	DATA 	Mouse: wheel shift=(0,-2), pos=(1024,508)
+13.2780 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.2782 	DATA 	Mouse: wheel shift=(0,2), pos=(1024,508)
+13.2878 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.3113 	DATA 	Mouse: wheel shift=(0,2), pos=(1024,508)
+13.3208 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.3444 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.3544 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.3821 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.4452 	DATA 	Mouse: wheel shift=(0,1), pos=(1024,508)
+13.6781 	DATA 	Mouse: wheel shift=(0,-1), pos=(1025,508)
+13.7109 	DATA 	Mouse: wheel shift=(0,-3), pos=(1025,508)
+13.7208 	DATA 	Mouse: wheel shift=(0,-1), pos=(1025,508)
+13.7447 	DATA 	Mouse: wheel shift=(0,-3), pos=(1025,508)
+13.7542 	DATA 	Mouse: wheel shift=(0,-1), pos=(1026,508)
+13.7778 	DATA 	Mouse: wheel shift=(0,-1), pos=(1026,508)
+14.9111 	DATA 	Keypress: escape
+15.2137 	EXP 	window1: mouseVisible = True

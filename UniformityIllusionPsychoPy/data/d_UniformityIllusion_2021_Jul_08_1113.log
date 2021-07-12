@@ -1,0 +1,46 @@
+1.0209 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+7.0481 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x00000213F22438D0>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x00000213F215EF60>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+7.0484 	EXP 	window1: mouseVisible = True
+7.0484 	EXP 	window1: recordFrameIntervals = False
+7.2144 	EXP 	window1: recordFrameIntervals = True
+7.3979 	EXP 	window1: recordFrameIntervals = False
+7.8732 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Welcome to our Study!', units='height', win=Window(...), wrapWidth=1)
+7.8925 	EXP 	Imported test.xlsx as conditions, 1 conditions, 11 params
+7.8938 	EXP 	Question text: test
+7.9183 	EXP 	window1: mouseVisible = True
+7.9505 	EXP 	window1: mouseVisible = True
+7.9548 	EXP 	Created unnamed Rect = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=UNKNOWN, interpolate=True, lineColor=array([0, 0, 0]), lineColorSpace='rgb', lineRGB=UNKNOWN, lineWidth=1.5, name='unnamed Rect', opacity=0, ori=0.0, pos=array([0., 0.]), size=array([0., 0.]), units='height', vertices=ndarray(...), win=Window(...))
+7.9606 	EXP 	Created DepressionQuestionnaire = <psychopy.visual.form.Form object at 0x00000213F4C48A58>
+7.9933 	EXP 	window1: mouseVisible = True
+8.0087 	EXP 	Created instructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Any text\n\nincluding line breaks', units='height', win=Window(...), wrapWidth=1)
+8.1480 	EXP 	Created image = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='stimuli\\\\3a.png', interpolate=True, mask=None, maskParams=None, name='image', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([2., 2.]), texRes=128.0, units='height', win=Window(...))
+8.1525 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+8.1973 	EXP 	unnamed Form: autoLog = True
+8.1973 	EXP 	DepressionQuestionnaire: name = 'DepressionQuestionnaire'
+8.1973 	EXP 	DepressionQuestionnaire: size = (1, 0.7)
+8.1973 	EXP 	DepressionQuestionnaire: size = array([1. , 0.7])
+8.1973 	EXP 	DepressionQuestionnaire: units = 'height'
+8.1973 	EXP 	DepressionQuestionnaire: depth = 0
+8.1973 	EXP 	WelcomeText: autoDraw = True
+8.9000 	DATA 	Keypress: space
+9.5330 	DATA 	Keypress: space
+9.9671 	DATA 	Keypress: space
+10.1976 	EXP 	WelcomeText: autoDraw = False
+10.1976 	EXP 	DepressionQuestionnaire: autoDraw = True
+13.2088 	DATA 	Mouse: Left button down, pos=(1075,709)
+13.4641 	DATA 	Mouse:  Left button up, pos=(1075,709)
+14.0635 	DATA 	Mouse: Left button down, pos=(962,715)
+14.2300 	DATA 	Mouse:  Left button up, pos=(959,715)
+14.6644 	DATA 	Mouse: Left button down, pos=(837,711)
+14.7665 	DATA 	Mouse:  Left button up, pos=(837,711)
+15.1636 	DATA 	Mouse: Left button down, pos=(724,703)
+15.2965 	DATA 	Mouse:  Left button up, pos=(724,702)
+16.4633 	DATA 	Keypress: lctrl
+16.7628 	DATA 	Mouse: Left button down, pos=(365,538)
+16.8631 	DATA 	Mouse:  Left button up, pos=(390,538)
+17.0635 	DATA 	Mouse: Left button down, pos=(734,541)
+17.0958 	EXP 	DepressionQuestionnaire: autoDraw = False
+17.0958 	EXP 	instructionsText: autoDraw = True
+17.1831 	DATA 	Mouse:  Left button up, pos=(734,541)
+17.6340 	DATA 	Keypress: escape
+17.9597 	EXP 	window1: mouseVisible = True

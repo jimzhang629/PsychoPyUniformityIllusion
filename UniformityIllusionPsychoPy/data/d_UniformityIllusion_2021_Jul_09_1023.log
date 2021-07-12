@@ -1,0 +1,50 @@
+1.1940 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+8.1077 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000022C354D4A58>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000022C35471128>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+8.1080 	EXP 	window1: mouseVisible = True
+8.1080 	EXP 	window1: recordFrameIntervals = False
+8.2732 	EXP 	window1: recordFrameIntervals = True
+8.4567 	EXP 	window1: recordFrameIntervals = False
+8.9288 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Welcome to our Study!', units='height', win=Window(...), wrapWidth=1)
+8.9429 	EXP 	Imported test.xlsx as conditions, 1 conditions, 11 params
+8.9439 	EXP 	Question text: test
+8.9644 	EXP 	window1: mouseVisible = True
+8.9982 	EXP 	window1: mouseVisible = True
+9.0025 	EXP 	Created unnamed Rect = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=UNKNOWN, interpolate=True, lineColor=array([0, 0, 0]), lineColorSpace='rgb', lineRGB=UNKNOWN, lineWidth=1.5, name='unnamed Rect', opacity=0, ori=0.0, pos=array([0., 0.]), size=array([0., 0.]), units='height', vertices=ndarray(...), win=Window(...))
+9.0129 	EXP 	Created DepressionQuestionnaire = <psychopy.visual.form.Form object at 0x0000022C37F80C18>
+9.0369 	EXP 	window1: mouseVisible = True
+9.0513 	EXP 	Created instructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Any text\n\nincluding line breaks', units='height', win=Window(...), wrapWidth=1)
+9.0598 	EXP 	Created hasPeriphery = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='hasPeriphery', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+9.2167 	EXP 	Created noPeriphery = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='stimuli\\\\3start.png', interpolate=True, mask=None, maskParams=None, name='noPeriphery', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([1.77777778, 1.        ]), texRes=128.0, units='height', win=Window(...))
+9.2213 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+9.2737 	EXP 	unnamed Form: autoLog = True
+9.2737 	EXP 	DepressionQuestionnaire: name = 'DepressionQuestionnaire'
+9.2737 	EXP 	DepressionQuestionnaire: size = (1, 0.7)
+9.2737 	EXP 	DepressionQuestionnaire: size = array([1. , 0.7])
+9.2737 	EXP 	DepressionQuestionnaire: units = 'height'
+9.2737 	EXP 	DepressionQuestionnaire: depth = 0
+9.2737 	EXP 	WelcomeText: autoDraw = True
+11.2567 	EXP 	WelcomeText: autoDraw = False
+11.2567 	EXP 	DepressionQuestionnaire: autoDraw = True
+11.2900 	DATA 	Keypress: space
+12.9559 	DATA 	Mouse: Left button down, pos=(950,638)
+13.0898 	DATA 	Mouse:  Left button up, pos=(950,638)
+13.4663 	DATA 	Mouse: Left button down, pos=(951,678)
+13.6228 	DATA 	Mouse:  Left button up, pos=(951,678)
+14.2950 	DATA 	Mouse: Left button down, pos=(957,723)
+14.4561 	DATA 	Mouse:  Left button up, pos=(957,723)
+15.3581 	DATA 	Mouse: Left button down, pos=(959,762)
+15.5556 	DATA 	Mouse:  Left button up, pos=(959,762)
+15.9566 	DATA 	Mouse: Left button down, pos=(961,716)
+16.2337 	DATA 	Mouse:  Left button up, pos=(958,691)
+16.3335 	DATA 	Mouse: Left button down, pos=(958,685)
+18.9661 	DATA 	Mouse:  Left button up, pos=(974,677)
+19.8882 	DATA 	Mouse: Left button down, pos=(895,544)
+19.9044 	EXP 	DepressionQuestionnaire: autoDraw = False
+19.9044 	EXP 	instructionsText: autoDraw = True
+20.0600 	DATA 	Mouse:  Left button up, pos=(894,544)
+20.6593 	DATA 	Keypress: space
+20.6815 	EXP 	Imported picPaths.xlsx as conditions, 6 conditions, 2 params
+20.6831 	EXP 	Created sequence: random, trialTypes=6, nReps=5, seed=None
+20.6834 	EXP 	New trial (rep=0, index=0): {'ImageFile': 'C:\\Users\\hesselmann\\Desktop\\stimuli\\3b.png', 'AB': 'b'}
+20.6840 	ERROR 	Couldn't find image C:\Users\hesselmann\Desktop\stimuli\3b.png; check path? (tried: C:\Users\hesselmann\Desktop\stimuli\3b.png)
+20.8439 	EXP 	window1: mouseVisible = True
