@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
@@ -53,11 +53,42 @@ is_gaze_on_surface = True
 #set pupil time to psychopy time
 pupil_time = core.Clock()
 time_fn = pupil_time.getTime()
-req.send_string("T" + str(time_fn()))
+req.send_string("T" + str(time_fn))
 print(req.recv_string())
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
+
+def notify(pupil_remote, notification):
+    """Sends ``notification`` to Pupil Remote"""
+    topic = "notify." + notification["subject"]
+    payload = serializer.dumps(notification, use_bin_type=True)
+    pupil_remote.send_string(topic, flags=zmq.SNDMORE)
+    pupil_remote.send(payload)
+    return pupil_remote.recv_string()
+
+
+def send_trigger(pub_socket, trigger):
+    """Sends annotation via PUB port"""
+    payload = serializer.dumps(trigger, use_bin_type=True)
+    pub_socket.send_string(trigger["topic"], flags=zmq.SNDMORE)
+    pub_socket.send(payload)
+
+
+def new_trigger(label, duration, timestamp):
+    """Creates a new trigger/annotation to send to Pupil Capture"""
+    return {
+        "topic": "annotation",
+        "label": label,
+        "timestamp": timestamp,
+        "duration": duration,
+    }
+
+#req.send_string('C')
+
+#start recording
+req.send_string('R')
+req.recv_string()
 
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
@@ -553,6 +584,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                     is_gaze_on_surface = True
                 else:
                     is_gaze_on_surface = False
+                    print(norm_gp_x, norm_gp_y)
         except:
             pass
         if is_gaze_on_surface:
@@ -598,6 +630,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
                 key_resp.rt = _key_resp_allKeys[-1].rt
                 # a response ends the routine
+                
                 continueRoutine = False
         
         # *noPeriphery* updates
@@ -925,6 +958,9 @@ for thisTestTrialsLoop in TestTrialsLoop:
     routineTimer.reset()
     thisExp.nextEntry()
     
+    #end recording
+    req.send_string('r')
+    req.recv_string()
 # completed 1.0 repeats of 'TestTrialsLoop'
 
 
@@ -945,6 +981,7 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 Thanks_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
+
 
 # -------Run Routine "Thanks_"-------
 while continueRoutine:
