@@ -958,9 +958,8 @@ for thisTestTrialsLoop in TestTrialsLoop:
     routineTimer.reset()
     thisExp.nextEntry()
     
-    #end recording
-    req.send_string('r')
-    req.recv_string()
+    
+    
 # completed 1.0 repeats of 'TestTrialsLoop'
 
 
@@ -984,6 +983,7 @@ frameN = -1
 
 
 # -------Run Routine "Thanks_"-------
+
 while continueRoutine:
     # get current time
     t = Thanks_Clock.getTime()
@@ -1016,10 +1016,14 @@ for thisComponent in Thanks_Components:
 # the Routine "Thanks_" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
+#end recording
+
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
 win.flip()
-
+req.send_string('r')
+req.recv_string()
+ 
 # these shouldn't be strictly necessary (should auto-save)
 thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
