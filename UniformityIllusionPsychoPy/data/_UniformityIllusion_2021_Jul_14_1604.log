@@ -1,0 +1,491 @@
+1.6258 	WARNING 	We strongly recommend you activate the PTB sound engine in PsychoPy prefs as the preferred audio engine. Its timing is vastly superior. Your prefs are currently set to use ['sounddevice', 'PTB', 'pyo', 'pygame'] (in that order).
+17.6643 	WARNING 	Couldn't measure a consistent frame rate.
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+17.6646 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, autoLog=True, backendConf=UNKNOWN, bitsMode=UNKNOWN, blendMode='avg', bpc=(8, 8, 8), color=array([0, 0, 0]), colorSpace='rgb', depthBits=8, fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000001F0FF827470>, gamma=None, gammaErrorPolicy='raise', lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000001F0FF8BE828>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stencilBits=0, stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+17.6649 	EXP 	window1: mouseVisible = True
+17.6649 	EXP 	window1: recordFrameIntervals = False
+17.9376 	EXP 	window1: recordFrameIntervals = True
+18.0020 	WARNING 	t of last frame was 34.33ms (=1/29)
+18.0322 	WARNING 	t of last frame was 30.25ms (=1/33)
+18.0766 	WARNING 	t of last frame was 44.39ms (=1/22)
+18.1327 	WARNING 	t of last frame was 37.53ms (=1/26)
+18.1574 	WARNING 	Multiple dropped frames have occurred - I'll stop bothering you about them!
+20.9299 	WARNING 	Couldn't measure a consistent frame rate.
+  - Is your graphics card set to sync to vertical blank?
+  - Are you running other processes on your computer?
+
+21.5429 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Welcome to our Study!', units='height', win=Window(...), wrapWidth=1)
+21.5659 	EXP 	Imported depression.xlsx as conditions, 2 conditions, 12 params
+21.5670 	EXP 	Question text: Sadness
+21.6056 	EXP 	window1: mouseVisible = True
+21.6645 	EXP 	Question text: Pessimism
+21.6921 	EXP 	window1: mouseVisible = True
+21.7331 	EXP 	window1: mouseVisible = True
+21.7487 	EXP 	Created unnamed Rect = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace='rgb', contrast=None, depth=0, fillColor=array([0, 0, 0]), fillColorSpace='rgb', fillRGB=UNKNOWN, interpolate=True, lineColor=array([0, 0, 0]), lineColorSpace='rgb', lineRGB=UNKNOWN, lineWidth=1.5, name='unnamed Rect', opacity=0, ori=0.0, pos=array([0., 0.]), size=array([0., 0.]), units='height', vertices=ndarray(...), win=Window(...))
+21.7592 	EXP 	Created DepressionQuestionnaire = <psychopy.visual.form.Form object at 0x000001F082BC2BA8>
+21.7979 	EXP 	window1: mouseVisible = True
+21.8936 	EXP 	Created instructionsText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='instructionsText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.8984 	EXP 	Created hasPeriphery = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='hasPeriphery', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+21.9016 	EXP 	Created noPeriphery = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='noPeriphery', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+21.9088 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+21.9341 	EXP 	Created WelcomeText = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='WelcomeText', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='Welcome to our Study!', units='height', win=Window(...), wrapWidth=1)
+21.9375 	EXP 	Created hasPeriphery_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='hasPeriphery_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+21.9435 	EXP 	Created noPeriphery_2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1, 1, 1]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='noPeriphery_2', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.5, 0.5]), texRes=128.0, units='height', win=Window(...))
+21.9463 	EXP 	Created text_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz=method-wrapper(...), alignText='center', alignVert=method-wrapper(...), anchorHoriz='center', anchorVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1, -1, -1]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Open Sans', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_2', opacity=1, ori=0.0, pos=array([0., 0.]), rgb=UNKNOWN, text='+', units='height', win=Window(...), wrapWidth=1)
+22.0127 	EXP 	unnamed Form: autoLog = True
+22.0127 	EXP 	DepressionQuestionnaire: name = 'DepressionQuestionnaire'
+22.0127 	EXP 	DepressionQuestionnaire: size = (3.5, 1)
+22.0127 	EXP 	DepressionQuestionnaire: size = array([3.5, 1. ])
+22.0127 	EXP 	DepressionQuestionnaire: units = 'height'
+22.0127 	EXP 	DepressionQuestionnaire: depth = 0
+22.0127 	EXP 	WelcomeText: autoDraw = True
+24.0182 	EXP 	WelcomeText: autoDraw = False
+24.0182 	EXP 	DepressionQuestionnaire: autoDraw = True
+29.5847 	DATA 	Mouse: Left button down, pos=(943,713)
+29.6829 	DATA 	Mouse:  Left button up, pos=(943,713)
+30.1029 	DATA 	Mouse: wheel shift=(0,-1), pos=(1002,527)
+30.1209 	DATA 	Mouse: wheel shift=(0,-1), pos=(1002,524)
+30.1461 	DATA 	Mouse: wheel shift=(0,-3), pos=(1003,523)
+30.1599 	DATA 	Mouse: wheel shift=(0,-1), pos=(1006,519)
+30.7944 	DATA 	Mouse: Left button down, pos=(948,558)
+30.8641 	DATA 	Mouse:  Left button up, pos=(948,558)
+31.3620 	DATA 	Mouse: Left button down, pos=(949,565)
+31.4485 	DATA 	Mouse:  Left button up, pos=(959,543)
+31.8382 	DATA 	Mouse: wheel shift=(0,-1), pos=(959,566)
+31.8670 	DATA 	Mouse: wheel shift=(0,-2), pos=(959,566)
+31.8722 	DATA 	Mouse: wheel shift=(0,-1), pos=(959,566)
+31.8803 	DATA 	Mouse: wheel shift=(0,-1), pos=(959,566)
+31.8878 	DATA 	Mouse: wheel shift=(0,-1), pos=(959,566)
+31.9245 	DATA 	Mouse: wheel shift=(0,-3), pos=(959,566)
+33.3997 	DATA 	Mouse: Left button down, pos=(805,113)
+33.4271 	EXP 	DepressionQuestionnaire: autoDraw = False
+33.4271 	EXP 	instructionsText: autoDraw = True
+33.5988 	DATA 	Mouse:  Left button up, pos=(805,113)
+34.2469 	DATA 	Mouse: Left button down, pos=(922,313)
+34.3754 	DATA 	Mouse:  Left button up, pos=(922,313)
+35.4018 	EXP 	Imported picPaths.xlsx as conditions, 6 conditions, 3 params
+35.4022 	EXP 	Created sequence: sequential, trialTypes=6, nReps=1, seed=None
+35.4025 	EXP 	New trial (rep=0, index=0): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1a.png', 'AB': 'a'}
+35.6970 	DATA 	Keypress: space
+35.7778 	EXP 	instructionsText: autoDraw = False
+35.7778 	EXP 	hasPeriphery: size = array([1.77777778, 1.        ])
+35.7778 	EXP 	hasPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1a.png'
+35.7778 	EXP 	noPeriphery: size = array([1.77777778, 1.        ])
+35.7778 	EXP 	noPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1start.png'
+35.7778 	EXP 	hasPeriphery: autoDraw = True
+35.7778 	EXP 	hasPeriphery: texRes = 128.0
+35.7778 	EXP 	noPeriphery: autoDraw = True
+35.7778 	EXP 	noPeriphery: texRes = 128.0
+35.7778 	EXP 	text: autoDraw = True
+35.8998 	EXP 	New trial (rep=0, index=1): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1b.png', 'AB': 'b'}
+36.1431 	EXP 	New trial (rep=0, index=2): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2a.png', 'AB': 'a'}
+36.3212 	EXP 	New trial (rep=0, index=3): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2b.png', 'AB': 'b'}
+36.4741 	EXP 	New trial (rep=0, index=4): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3a.png', 'AB': 'a'}
+36.6492 	EXP 	New trial (rep=0, index=5): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3b.png', 'AB': 'b'}
+36.8628 	EXP 	hasPeriphery: texRes = 128.0
+36.8628 	EXP 	noPeriphery: texRes = 128.0
+36.8628 	EXP 	hasPeriphery: autoDraw = False
+36.8628 	EXP 	noPeriphery: autoDraw = False
+36.8628 	EXP 	text: autoDraw = False
+36.8628 	EXP 	hasPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	hasPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1b.png'
+36.8628 	EXP 	noPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	noPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\1start.png'
+36.8628 	EXP 	hasPeriphery: autoDraw = True
+36.8628 	EXP 	hasPeriphery: texRes = 128.0
+36.8628 	EXP 	noPeriphery: autoDraw = True
+36.8628 	EXP 	noPeriphery: texRes = 128.0
+36.8628 	EXP 	text: autoDraw = True
+36.8628 	EXP 	hasPeriphery: autoDraw = False
+36.8628 	EXP 	noPeriphery: autoDraw = False
+36.8628 	EXP 	text: autoDraw = False
+36.8628 	EXP 	hasPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	hasPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2a.png'
+36.8628 	EXP 	noPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	noPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2start.png'
+36.8628 	EXP 	hasPeriphery: autoDraw = True
+36.8628 	EXP 	hasPeriphery: texRes = 128.0
+36.8628 	EXP 	noPeriphery: autoDraw = True
+36.8628 	EXP 	noPeriphery: texRes = 128.0
+36.8628 	EXP 	text: autoDraw = True
+36.8628 	EXP 	hasPeriphery: autoDraw = False
+36.8628 	EXP 	noPeriphery: autoDraw = False
+36.8628 	EXP 	text: autoDraw = False
+36.8628 	EXP 	hasPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	hasPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2b.png'
+36.8628 	EXP 	noPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	noPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\2start.png'
+36.8628 	EXP 	hasPeriphery: autoDraw = True
+36.8628 	EXP 	hasPeriphery: texRes = 128.0
+36.8628 	EXP 	noPeriphery: autoDraw = True
+36.8628 	EXP 	noPeriphery: texRes = 128.0
+36.8628 	EXP 	text: autoDraw = True
+36.8628 	EXP 	hasPeriphery: autoDraw = False
+36.8628 	EXP 	noPeriphery: autoDraw = False
+36.8628 	EXP 	text: autoDraw = False
+36.8628 	EXP 	hasPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	hasPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3a.png'
+36.8628 	EXP 	noPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	noPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3start.png'
+36.8628 	EXP 	hasPeriphery: autoDraw = True
+36.8628 	EXP 	hasPeriphery: texRes = 128.0
+36.8628 	EXP 	noPeriphery: autoDraw = True
+36.8628 	EXP 	noPeriphery: texRes = 128.0
+36.8628 	EXP 	text: autoDraw = True
+36.8628 	EXP 	hasPeriphery: autoDraw = False
+36.8628 	EXP 	noPeriphery: autoDraw = False
+36.8628 	EXP 	text: autoDraw = False
+36.8628 	EXP 	hasPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	hasPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3b.png'
+36.8628 	EXP 	noPeriphery: size = array([1.77777778, 1.        ])
+36.8628 	EXP 	noPeriphery: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\3start.png'
+36.8628 	EXP 	hasPeriphery: autoDraw = True
+36.8628 	EXP 	hasPeriphery: texRes = 128.0
+36.8628 	EXP 	noPeriphery: autoDraw = True
+36.8628 	EXP 	noPeriphery: texRes = 128.0
+36.8628 	EXP 	text: autoDraw = True
+36.8628 	EXP 	hasPeriphery: autoDraw = False
+36.8628 	EXP 	noPeriphery: autoDraw = False
+36.8628 	EXP 	text: autoDraw = False
+36.8628 	EXP 	WelcomeText: autoDraw = True
+38.8624 	EXP 	Imported picPaths.xlsx as conditions, 24 conditions, 3 params
+38.8627 	EXP 	Created sequence: sequential, trialTypes=24, nReps=1, seed=None
+38.8631 	EXP 	New trial (rep=0, index=0): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4a.png', 'AB': 'a'}
+39.0860 	EXP 	New trial (rep=0, index=1): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4b.png', 'AB': 'b'}
+39.2575 	EXP 	New trial (rep=0, index=2): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5a.png', 'AB': 'a'}
+39.6038 	EXP 	WelcomeText: autoDraw = False
+39.6038 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+39.6038 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4a.png'
+39.6038 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+39.6038 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4start.png'
+39.6038 	EXP 	hasPeriphery_2: autoDraw = True
+39.6038 	EXP 	hasPeriphery_2: texRes = 128.0
+39.6038 	EXP 	noPeriphery_2: autoDraw = True
+39.6038 	EXP 	noPeriphery_2: texRes = 128.0
+39.6038 	EXP 	text_2: autoDraw = True
+39.6038 	EXP 	hasPeriphery_2: autoDraw = False
+39.6038 	EXP 	noPeriphery_2: autoDraw = False
+39.6038 	EXP 	text_2: autoDraw = False
+39.6038 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+39.6038 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4b.png'
+39.6038 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+39.6038 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\4start.png'
+39.6038 	EXP 	hasPeriphery_2: autoDraw = True
+39.6038 	EXP 	hasPeriphery_2: texRes = 128.0
+39.6038 	EXP 	noPeriphery_2: autoDraw = True
+39.6038 	EXP 	noPeriphery_2: texRes = 128.0
+39.6038 	EXP 	text_2: autoDraw = True
+39.6038 	EXP 	hasPeriphery_2: autoDraw = False
+39.6038 	EXP 	noPeriphery_2: autoDraw = False
+39.6038 	EXP 	text_2: autoDraw = False
+39.6038 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+39.6038 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5a.png'
+39.6038 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+39.6038 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5start.png'
+39.6038 	EXP 	hasPeriphery_2: autoDraw = True
+39.6038 	EXP 	hasPeriphery_2: texRes = 128.0
+39.6038 	EXP 	noPeriphery_2: autoDraw = True
+39.6038 	EXP 	noPeriphery_2: texRes = 128.0
+39.6038 	EXP 	text_2: autoDraw = True
+39.7461 	DATA 	Mouse: Left button down, pos=(928,297)
+39.8060 	EXP 	hasPeriphery_2: texRes = 128.0
+39.8060 	EXP 	noPeriphery_2: texRes = 128.0
+39.9697 	DATA 	Mouse:  Left button up, pos=(928,297)
+40.0470 	EXP 	hasPeriphery_2: texRes = 128.0
+40.0470 	EXP 	noPeriphery_2: texRes = 128.0
+40.2830 	EXP 	hasPeriphery_2: texRes = 128.0
+40.2830 	EXP 	noPeriphery_2: texRes = 128.0
+40.5235 	EXP 	hasPeriphery_2: texRes = 128.0
+40.5235 	EXP 	noPeriphery_2: texRes = 128.0
+40.7373 	EXP 	hasPeriphery_2: texRes = 128.0
+40.7373 	EXP 	noPeriphery_2: texRes = 128.0
+40.9809 	EXP 	hasPeriphery_2: texRes = 128.0
+40.9809 	EXP 	noPeriphery_2: texRes = 128.0
+41.1354 	EXP 	New trial (rep=0, index=3): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5b.png', 'AB': 'b'}
+41.3576 	EXP 	New trial (rep=0, index=4): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6a.png', 'AB': 'a'}
+41.5516 	EXP 	New trial (rep=0, index=5): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6b.png', 'AB': 'b'}
+41.7536 	EXP 	New trial (rep=0, index=6): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7a.png', 'AB': None}
+41.9836 	EXP 	New trial (rep=0, index=7): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7b.png', 'AB': None}
+42.2177 	EXP 	New trial (rep=0, index=8): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8a.png', 'AB': None}
+42.4217 	EXP 	New trial (rep=0, index=9): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8b.png', 'AB': None}
+42.6257 	EXP 	New trial (rep=0, index=10): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9a.png', 'AB': None}
+42.8246 	EXP 	New trial (rep=0, index=11): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9b.png', 'AB': None}
+42.9915 	EXP 	New trial (rep=0, index=12): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10a.png', 'AB': None}
+43.2178 	EXP 	New trial (rep=0, index=13): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10b.png', 'AB': None}
+43.4568 	EXP 	New trial (rep=0, index=14): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11a.png', 'AB': None}
+43.6976 	EXP 	New trial (rep=0, index=15): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11b.png', 'AB': None}
+43.9298 	EXP 	New trial (rep=0, index=16): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12a.png', 'AB': None}
+44.1098 	EXP 	New trial (rep=0, index=17): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12b.png', 'AB': None}
+44.2979 	EXP 	New trial (rep=0, index=18): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13a.png', 'AB': None}
+44.5548 	EXP 	New trial (rep=0, index=19): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13b.png', 'AB': None}
+44.8137 	EXP 	New trial (rep=0, index=20): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14a.png', 'AB': None}
+45.0458 	EXP 	New trial (rep=0, index=21): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14b.png', 'AB': None}
+45.2288 	EXP 	New trial (rep=0, index=22): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15a.png', 'AB': None}
+45.3909 	EXP 	New trial (rep=0, index=23): {'startImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15start.png', 'endImage': 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15b.png', 'AB': None}
+45.5605 	DATA 	Keypress: space
+45.5614 	DATA 	Keypress: space
+45.5618 	DATA 	Mouse: Left button down, pos=(983,435)
+45.5619 	DATA 	Mouse:  Left button up, pos=(983,435)
+45.5621 	DATA 	Keypress: space
+45.5624 	DATA 	Keypress: space
+45.5627 	DATA 	Keypress: space
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\5start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\6start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\7start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\8start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\9start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\10start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\11start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\12start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\13start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\14start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15a.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.5774 	EXP 	hasPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	hasPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15b.png'
+45.5774 	EXP 	noPeriphery_2: size = array([1.77777778, 1.        ])
+45.5774 	EXP 	noPeriphery_2: image = 'C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\Pics\\15start.png'
+45.5774 	EXP 	hasPeriphery_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: texRes = 128.0
+45.5774 	EXP 	noPeriphery_2: autoDraw = True
+45.5774 	EXP 	noPeriphery_2: texRes = 128.0
+45.5774 	EXP 	text_2: autoDraw = True
+45.5774 	EXP 	hasPeriphery_2: autoDraw = False
+45.5774 	EXP 	noPeriphery_2: autoDraw = False
+45.5774 	EXP 	text_2: autoDraw = False
+45.8600 	EXP 	window1: mouseVisible = True

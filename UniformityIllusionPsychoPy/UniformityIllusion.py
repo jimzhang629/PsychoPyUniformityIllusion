@@ -30,6 +30,8 @@ from psychopy.hardware import keyboard
 
 import zmq
 from msgpack import loads
+import msgpack as serializer
+from time import sleep, time
 
 context = zmq.Context()
 # open a req port to talk to pupil
@@ -37,14 +39,23 @@ addr = "127.0.0.1"  # remote ip or localhost
 req_port = "50020"  # same as in the pupil remote gui
 req = context.socket(zmq.REQ)
 req.connect("tcp://{}:{}".format(addr, req_port))
+
 # ask for the sub port
 req.send_string("SUB_PORT")
 sub_port = req.recv_string()
+
+
+# PUB socket
+req.send_string("PUB_PORT")
+pub_port = req.recv_string()
+pub_socket = zmq.Socket(context, zmq.PUB)
+pub_socket.connect("tcp://127.0.0.1:{}".format(pub_port))
 
 # open a sub port to listen to pupil
 sub = context.socket(zmq.SUB)
 sub.connect("tcp://{}:{}".format(addr, sub_port))
 sub.setsockopt_string(zmq.SUBSCRIBE, "surface")
+
 
 # specify the name of the surface you want to use
 surface_name = "monitor"
@@ -52,8 +63,8 @@ is_gaze_on_surface = True
 
 #set pupil time to psychopy time
 pupil_time = core.Clock()
-time_fn = pupil_time.getTime()
-req.send_string("T" + str(time_fn))
+time_fn = pupil_time.getTime
+req.send_string("T" + str(time_fn()))
 print(req.recv_string())
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -83,6 +94,12 @@ def new_trigger(label, duration, timestamp):
         "timestamp": timestamp,
         "duration": duration,
     }
+    
+# Start the annotations plugin
+notify(
+        req,
+        {"subject": "start_plugin", "name": "Annotation_Capture", "args": {}},
+    )
 
 #req.send_string('C')
 
@@ -90,6 +107,13 @@ def new_trigger(label, duration, timestamp):
 req.send_string('R')
 req.recv_string()
 
+ 
+label = "start experiment"
+duration = 0.1
+minimal_trigger = new_trigger(label, duration, pupil_time())
+send_trigger(pub_socket, minimal_trigger)
+sleep(1)  # sleep for a few seconds, can be less
+    
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 expName = 'UniformityIllusion'  # from the Builder filename that created this script
@@ -716,6 +740,7 @@ for thisComponent in WelcomeComponents:
     thisComponent.tStopRefresh = None
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
+        
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
