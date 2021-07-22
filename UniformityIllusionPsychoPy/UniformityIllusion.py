@@ -107,13 +107,7 @@ notify(
 req.send_string('R')
 req.recv_string()
 
- 
-label = "start experiment"
-duration = 0.1
-minimal_trigger = new_trigger(label, duration, pupil_time())
-send_trigger(pub_socket, minimal_trigger)
-sleep(1)  # sleep for a few seconds, can be less
-    
+
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 expName = 'UniformityIllusion'  # from the Builder filename that created this script
@@ -159,6 +153,7 @@ else:
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
+
 
 # Initialize components for Routine "Welcome"
 WelcomeClock = core.Clock()
@@ -295,6 +290,13 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 WelcomeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
+
+#save this timestamp as the beginning of the experiment
+label = "start experiment"
+duration = 0.0
+minimal_trigger = new_trigger(label, duration, time_fn())
+send_trigger(pub_socket, minimal_trigger)
+sleep(1)  # sleep for a few seconds, can be less
 
 # -------Run Routine "Welcome"-------
 while continueRoutine and routineTimer.getTime() > 0:
@@ -614,7 +616,9 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         if is_gaze_on_surface:
             continueRoutine = True
         else:
-            continueRoutine = False
+            #continueRoutine = False
+            print("look at the screen u dummy")
+            
         # *hasPeriphery* updates
         if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -650,7 +654,14 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         if key_resp.status == STARTED and not waitOnFlip:
             theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
             _key_resp_allKeys.extend(theseKeys)
+            
             if len(_key_resp_allKeys):
+                #save timestamp as spacebar press
+                label = "pressed space practice trial"
+                duration = 0.2
+                minimal_trigger = new_trigger(label, duration, time_fn())
+                send_trigger(pub_socket, minimal_trigger)
+                sleep(1)  # sleep for a few seconds, can be less
                 key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
                 key_resp.rt = _key_resp_allKeys[-1].rt
                 # a response ends the routine
@@ -849,7 +860,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
          #do pupil stuff
-  
+        
         topic = sub.recv_string()
         msg = sub.recv()  # bytes
         surfaces = loads(msg, raw=False)
@@ -910,7 +921,14 @@ for thisTestTrialsLoop in TestTrialsLoop:
         if key_resp_2.status == STARTED and not waitOnFlip:
             theseKeys = key_resp_2.getKeys(keyList=['space'], waitRelease=False)
             _key_resp_2_allKeys.extend(theseKeys)
+            
             if len(_key_resp_2_allKeys):
+                #label the time when they pressed spacebar
+                label = "pressed space test trial"
+                duration = 0.2
+                minimal_trigger = new_trigger(label, duration, time_fn())
+                send_trigger(pub_socket, minimal_trigger)
+                sleep(1)  # sleep for a few seconds, can be less
                 key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
                 key_resp_2.rt = _key_resp_2_allKeys[-1].rt
                 # a response ends the routine
