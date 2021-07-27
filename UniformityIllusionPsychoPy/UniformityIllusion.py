@@ -1,8 +1,8 @@
- #!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on July 12, 2021, at 15:56
+    on July 22, 2021, at 14:47
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -18,7 +18,7 @@ from psychopy import prefs
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
-
+                                
 import numpy as np  # whole numpy lib is available, prepend 'np.'
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
@@ -28,85 +28,11 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
-import zmq
-from msgpack import loads
-import msgpack as serializer
-from time import sleep, time
-
-context = zmq.Context()
-# open a req port to talk to pupil
-addr = "127.0.0.1"  # remote ip or localhost
-req_port = "50020"  # same as in the pupil remote gui
-req = context.socket(zmq.REQ)
-req.connect("tcp://{}:{}".format(addr, req_port))
-
-# ask for the sub port
-req.send_string("SUB_PORT")
-sub_port = req.recv_string()
 
 
-# PUB socket
-req.send_string("PUB_PORT")
-pub_port = req.recv_string()
-pub_socket = zmq.Socket(context, zmq.PUB)
-pub_socket.connect("tcp://127.0.0.1:{}".format(pub_port))
-
-# open a sub port to listen to pupil
-sub = context.socket(zmq.SUB)
-sub.connect("tcp://{}:{}".format(addr, sub_port))
-sub.setsockopt_string(zmq.SUBSCRIBE, "surface")
-
-
-# specify the name of the surface you want to use
-surface_name = "monitor"
-is_gaze_on_surface = True
-
-#set pupil time to psychopy time
-pupil_time = core.Clock()
-time_fn = pupil_time.getTime
-req.send_string("T" + str(time_fn()))
-print(req.recv_string())
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(_thisDir)
-
-def notify(pupil_remote, notification):
-    """Sends ``notification`` to Pupil Remote"""
-    topic = "notify." + notification["subject"]
-    payload = serializer.dumps(notification, use_bin_type=True)
-    pupil_remote.send_string(topic, flags=zmq.SNDMORE)
-    pupil_remote.send(payload)
-    return pupil_remote.recv_string()
-
-
-def send_trigger(pub_socket, trigger):
-    """Sends annotation via PUB port"""
-    payload = serializer.dumps(trigger, use_bin_type=True)
-    pub_socket.send_string(trigger["topic"], flags=zmq.SNDMORE)
-    pub_socket.send(payload)
-
-
-def new_trigger(label, duration, timestamp):
-    """Creates a new trigger/annotation to send to Pupil Capture"""
-    return {
-        "topic": "annotation",
-        "label": label,
-        "timestamp": timestamp,
-        "duration": duration,
-    }
-    
-# Start the annotations plugin
-notify(
-        req,
-        {"subject": "start_plugin", "name": "Annotation_Capture", "args": {}},
-    )
-
-#req.send_string('C')
-
-#start recording
-req.send_string('R')
-req.recv_string()
-
 
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
@@ -153,7 +79,6 @@ else:
 
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
-
 
 # Initialize components for Routine "Welcome"
 WelcomeClock = core.Clock()
@@ -210,7 +135,7 @@ hasPeriphery = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=0.0)
+    texRes=128.0, interpolate=True, depth=-1.0)
 key_resp = keyboard.Keyboard()
 noPeriphery = visual.ImageStim(
     win=win,
@@ -219,14 +144,14 @@ noPeriphery = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-2.0)
+    texRes=128.0, interpolate=True, depth=-3.0)
 text = visual.TextStim(win=win, name='text',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=-4.0);
 
 # Initialize components for Routine "Welcome"
 WelcomeClock = core.Clock()
@@ -290,13 +215,6 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 WelcomeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
-
-#save this timestamp as the beginning of the experiment
-label = "start experiment"
-duration = 0.0
-minimal_trigger = new_trigger(label, duration, time_fn())
-send_trigger(pub_socket, minimal_trigger)
-sleep(1)  # sleep for a few seconds, can be less
 
 # -------Run Routine "Welcome"-------
 while continueRoutine and routineTimer.getTime() > 0:
@@ -563,6 +481,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
     # ------Prepare to start Routine "Practice_Trials"-------
     continueRoutine = True
     # update component parameters for each repeat
+    stimulusInterval = randint(low = 2, high = 4) # choose a value
+    thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
     hasPeriphery.setImage(endImage)
     key_resp.keys = []
     key_resp.rt = []
@@ -592,35 +512,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        topic = sub.recv_string()
-        msg = sub.recv()  # bytes
-        surfaces = loads(msg, raw=False)
-        filtered_surface = {
-            k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
-        }
-        
-        try:
-            # note that we may have more than one gaze position data point (this is expected behavior)
-            gaze_positions = filtered_surface["gaze_on_surfaces"]
-            for gaze_pos in gaze_positions:
-                norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
-
-                # only print normalized gaze positions within the surface bounds
-                if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
-                    is_gaze_on_surface = True
-                else:
-                    is_gaze_on_surface = False
-                    print(norm_gp_x, norm_gp_y)
-        except:
-            pass
-        if is_gaze_on_surface:
-            continueRoutine = True
-        else:
-            #continueRoutine = False
-            print("look at the screen u dummy")
-            
         # *hasPeriphery* updates
-        if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if hasPeriphery.status == NOT_STARTED and tThisFlip >= stimulusInterval-frameTolerance:
             # keep track of start time/frame for later
             hasPeriphery.frameNStart = frameN  # exact frame index
             hasPeriphery.tStart = t  # local t and not account for scr refresh
@@ -654,18 +547,10 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         if key_resp.status == STARTED and not waitOnFlip:
             theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
             _key_resp_allKeys.extend(theseKeys)
-            
             if len(_key_resp_allKeys):
-                #save timestamp as spacebar press
-                label = "pressed space practice trial"
-                duration = 0.2
-                minimal_trigger = new_trigger(label, duration, time_fn())
-                send_trigger(pub_socket, minimal_trigger)
-                sleep(1)  # sleep for a few seconds, can be less
                 key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
                 key_resp.rt = _key_resp_allKeys[-1].rt
                 # a response ends the routine
-                
                 continueRoutine = False
         
         # *noPeriphery* updates
@@ -684,7 +569,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 noPeriphery.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(noPeriphery, 'tStopRefresh')  # time at next scr refresh
                 noPeriphery.setAutoDraw(False)
-        if noPeriphery.status == STARTED:  # only update if drawing
+        if noPeriphery.status == STARTED and tThisFlip >= stimulusInterval-frameTolerance:  # only update if drawing
             noPeriphery.setOpacity(1-frameN/10)
         
         # *text* updates
@@ -751,7 +636,6 @@ for thisComponent in WelcomeComponents:
     thisComponent.tStopRefresh = None
     if hasattr(thisComponent, 'status'):
         thisComponent.status = NOT_STARTED
-        
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
@@ -852,40 +736,13 @@ for thisTestTrialsLoop in TestTrialsLoop:
     
     # -------Run Routine "Test_Trials"-------
     while continueRoutine:
-        
         # get current time
         t = Test_TrialsClock.getTime()
         tThisFlip = win.getFutureFlipTime(clock=Test_TrialsClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-         #do pupil stuff
         
-        topic = sub.recv_string()
-        msg = sub.recv()  # bytes
-        surfaces = loads(msg, raw=False)
-        filtered_surface = {
-            k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
-        }
-        
-        try:
-            # note that we may have more than one gaze position data point (this is expected behavior)
-            gaze_positions = filtered_surface["gaze_on_surfaces"]
-            for gaze_pos in gaze_positions:
-                norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
-
-                # only print normalized gaze positions within the surface bounds
-                if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
-                    is_gaze_on_surface = True
-                else:
-                    is_gaze_on_surface = False
-        except:
-            pass
-        if is_gaze_on_surface:
-            continueRoutine = True
-        else:
-            continueRoutine = False
-            
         # *hasPeriphery_2* updates
         if hasPeriphery_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -921,14 +778,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
         if key_resp_2.status == STARTED and not waitOnFlip:
             theseKeys = key_resp_2.getKeys(keyList=['space'], waitRelease=False)
             _key_resp_2_allKeys.extend(theseKeys)
-            
             if len(_key_resp_2_allKeys):
-                #label the time when they pressed spacebar
-                label = "pressed space test trial"
-                duration = 0.2
-                minimal_trigger = new_trigger(label, duration, time_fn())
-                send_trigger(pub_socket, minimal_trigger)
-                sleep(1)  # sleep for a few seconds, can be less
                 key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
                 key_resp_2.rt = _key_resp_2_allKeys[-1].rt
                 # a response ends the routine
@@ -1001,8 +851,6 @@ for thisTestTrialsLoop in TestTrialsLoop:
     routineTimer.reset()
     thisExp.nextEntry()
     
-    
-    
 # completed 1.0 repeats of 'TestTrialsLoop'
 
 
@@ -1024,9 +872,7 @@ _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 Thanks_Clock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-
 # -------Run Routine "Thanks_"-------
-
 while continueRoutine:
     # get current time
     t = Thanks_Clock.getTime()
@@ -1059,14 +905,10 @@ for thisComponent in Thanks_Components:
 # the Routine "Thanks_" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-#end recording
-
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
 win.flip()
-req.send_string('r')
-req.recv_string()
- 
+
 # these shouldn't be strictly necessary (should auto-save)
 thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)

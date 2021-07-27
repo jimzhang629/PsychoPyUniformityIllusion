@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on July 12, 2021, at 13:24
+    on July 22, 2021, at 15:16
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -135,7 +135,7 @@ hasPeriphery = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=0.0)
+    texRes=128.0, interpolate=True, depth=-1.0)
 key_resp = keyboard.Keyboard()
 noPeriphery = visual.ImageStim(
     win=win,
@@ -144,14 +144,14 @@ noPeriphery = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-2.0)
+    texRes=128.0, interpolate=True, depth=-3.0)
 text = visual.TextStim(win=win, name='text',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=-4.0);
 
 # Initialize components for Routine "Welcome"
 WelcomeClock = core.Clock()
@@ -172,7 +172,7 @@ hasPeriphery_2 = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=0.0)
+    texRes=128.0, interpolate=True, depth=-1.0)
 key_resp_2 = keyboard.Keyboard()
 noPeriphery_2 = visual.ImageStim(
     win=win,
@@ -181,14 +181,14 @@ noPeriphery_2 = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-2.0)
+    texRes=128.0, interpolate=True, depth=-3.0)
 text_2 = visual.TextStim(win=win, name='text_2',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=-4.0);
 
 # Initialize components for Routine "Thanks_"
 Thanks_Clock = core.Clock()
@@ -481,6 +481,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
     # ------Prepare to start Routine "Practice_Trials"-------
     continueRoutine = True
     # update component parameters for each repeat
+    stimulusInterval = randint(low = 2, high = 4) # choose a value
+    thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
     hasPeriphery.setImage(endImage)
     key_resp.keys = []
     key_resp.rt = []
@@ -527,7 +529,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 win.timeOnFlip(hasPeriphery, 'tStopRefresh')  # time at next scr refresh
                 hasPeriphery.setAutoDraw(False)
         if hasPeriphery.status == STARTED:  # only update if drawing
-            hasPeriphery.setOpacity(frameN/10)
+            hasPeriphery.setOpacity(frameN/(10 * stimulusInterval))
         
         # *key_resp* updates
         waitOnFlip = False
@@ -568,7 +570,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 win.timeOnFlip(noPeriphery, 'tStopRefresh')  # time at next scr refresh
                 noPeriphery.setAutoDraw(False)
         if noPeriphery.status == STARTED:  # only update if drawing
-            noPeriphery.setOpacity(1-frameN/10)
+            noPeriphery.setOpacity(1-frameN/(10 * stimulusInterval))
         
         # *text* updates
         if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -712,6 +714,8 @@ for thisTestTrialsLoop in TestTrialsLoop:
     # ------Prepare to start Routine "Test_Trials"-------
     continueRoutine = True
     # update component parameters for each repeat
+    stimulusInterval = randint(low = 0.5, high = 9) # choose a value
+    thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
     hasPeriphery_2.setImage(endImage)
     key_resp_2.keys = []
     key_resp_2.rt = []
@@ -758,7 +762,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
                 win.timeOnFlip(hasPeriphery_2, 'tStopRefresh')  # time at next scr refresh
                 hasPeriphery_2.setAutoDraw(False)
         if hasPeriphery_2.status == STARTED:  # only update if drawing
-            hasPeriphery_2.setOpacity(frameN/10)
+            hasPeriphery_2.setOpacity(frameN/(10 * stimulusInterval))
         
         # *key_resp_2* updates
         waitOnFlip = False
@@ -799,7 +803,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
                 win.timeOnFlip(noPeriphery_2, 'tStopRefresh')  # time at next scr refresh
                 noPeriphery_2.setAutoDraw(False)
         if noPeriphery_2.status == STARTED:  # only update if drawing
-            noPeriphery_2.setOpacity(1-frameN/10)
+            noPeriphery_2.setOpacity(1-frameN/(10 * stimulusInterval))
         
         # *text_2* updates
         if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:

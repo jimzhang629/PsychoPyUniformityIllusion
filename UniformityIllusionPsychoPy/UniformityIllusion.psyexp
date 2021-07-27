@@ -107,6 +107,23 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="Practice_Trials">
+      <CodeComponent name="code">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="stimulusInterval = randint(low = 2, high = 4) # choose a value&amp;#10;thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code" valType="code"/>
+      </CodeComponent>
       <ImageComponent name="hasPeriphery">
         <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
@@ -119,14 +136,14 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="hasPeriphery" valType="code"/>
-        <Param name="opacity" updates="set every frame" val="frameN/10" valType="num"/>
+        <Param name="opacity" updates="set every frame" val="frameN/(10 * stimulusInterval)" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="size" updates="constant" val="" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startEstim" updates="None" val="2" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="startVal" updates="None" val="" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="10" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -163,14 +180,14 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="noPeriphery" valType="code"/>
-        <Param name="opacity" updates="set every frame" val="1-frameN/10" valType="num"/>
+        <Param name="opacity" updates="set every frame" val="1-frameN/(10 * stimulusInterval)" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="size" updates="constant" val="" valType="list"/>
-        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startEstim" updates="None" val="0" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="startVal" updates="None" val="" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="10" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
@@ -204,6 +221,23 @@
       </TextComponent>
     </Routine>
     <Routine name="Test_Trials">
+      <CodeComponent name="code_2">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="stimulusInterval = randint(low = 1, high = 9) # choose a value&amp;#10;thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="code_2" valType="code"/>
+      </CodeComponent>
       <ImageComponent name="hasPeriphery_2">
         <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
@@ -216,7 +250,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="hasPeriphery_2" valType="code"/>
-        <Param name="opacity" updates="set every frame" val="frameN/10" valType="num"/>
+        <Param name="opacity" updates="set every frame" val="frameN/(10 * stimulusInterval)" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
@@ -260,7 +294,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="noPeriphery_2" valType="code"/>
-        <Param name="opacity" updates="set every frame" val="1-frameN/10" valType="num"/>
+        <Param name="opacity" updates="set every frame" val="1-frameN/(10 * stimulusInterval)" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
