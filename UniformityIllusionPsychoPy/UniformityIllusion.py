@@ -4,11 +4,9 @@
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
     on July 29, 2021, at 11:06
 If you publish work using this script the most relevant publication is:
-
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
         PsychoPy2: Experiments in behavior made easy Behav Res 51: 195. 
         https://doi.org/10.3758/s13428-018-01193-y
-
 """
 
 from __future__ import absolute_import, division
@@ -488,7 +486,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-PracticeTrialsLoop = data.TrialHandler(nReps=1.0, method='sequential', 
+PracticeTrialsLoop = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('picPaths.xlsx', selection='0:6'),
     seed=None, name='PracticeTrialsLoop')
@@ -776,7 +774,7 @@ thisExp.addData('WelcomeText.started', WelcomeText.tStartRefresh)
 thisExp.addData('WelcomeText.stopped', WelcomeText.tStopRefresh)
 
 # set up handler to look after randomisation of conditions etc
-TestTrialsLoop = data.TrialHandler(nReps=1.0, method='sequential', 
+TestTrialsLoop = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('picPaths.xlsx', selection='6:30'),
     seed=None, name='TestTrialsLoop')
