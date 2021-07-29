@@ -329,6 +329,7 @@ sleep(1)  # sleep for a few seconds, can be less
 
 # -------Run Routine "Welcome"-------
 while continueRoutine and routineTimer.getTime() > 0:
+    
     # get current time
     t = WelcomeClock.getTime()
     tThisFlip = win.getFutureFlipTime(clock=WelcomeClock)
@@ -634,6 +635,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
         }
         
+        is_gaze_on_surface = True
+        
         try:
             # note that we may have more than one gaze position data point (this is expected behavior)
             gaze_positions = filtered_surface["gaze_on_surfaces"]
@@ -653,7 +656,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         else:
             continueRoutine = False #end the routine if they look away
             #print("look at the screen u dummy")
-            
+
+
         # *hasPeriphery* updates
         if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -694,7 +698,19 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 key_resp.rt = _key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        
+            if len(_key_resp_allKeys):
+                #save timestamp as spacebar press
+                label = "pressed space practice trial"
+                duration = 0.2
+                minimal_trigger = new_trigger(label, duration, time_fn())
+                send_trigger(pub_socket, minimal_trigger)
+                sleep(1)  # sleep for a few seconds, can be less
+                key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                key_resp.rt = _key_resp_allKeys[-1].rt
+                # a response ends the routine
+                
+                continueRoutine = False
+                
         # *noPeriphery* updates
         if noPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -969,7 +985,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
         else:
             continueRoutine = False #end the routine if they look away
             #print("look at the screen u dummy")
-            
+        
         # *hasPeriphery* updates
         if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -1010,7 +1026,19 @@ for thisTestTrialsLoop in TestTrialsLoop:
                 key_resp.rt = _key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        
+                
+            if len(_key_resp_allKeys):
+                #save timestamp as spacebar press
+                label = "pressed space practice trial"
+                duration = 0.2
+                minimal_trigger = new_trigger(label, duration, time_fn())
+                send_trigger(pub_socket, minimal_trigger)
+                sleep(1)  # sleep for a few seconds, can be less
+                key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                key_resp.rt = _key_resp_allKeys[-1].rt
+                # a response ends the routine
+                continueRoutine = False
+                
         # *noPeriphery* updates
         if noPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later

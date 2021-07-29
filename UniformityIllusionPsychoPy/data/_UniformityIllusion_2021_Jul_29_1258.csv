@@ -1,0 +1,5 @@
+﻿PracticeTrialsLoop.thisRepN,PracticeTrialsLoop.thisTrialN,PracticeTrialsLoop.thisN,PracticeTrialsLoop.thisIndex,startImage,midImage,endImage,AB,WelcomeText.started,WelcomeText.stopped,DepressionQuestionnaire.index,DepressionQuestionnaire.itemText,DepressionQuestionnaire.type,DepressionQuestionnaire.Scoring,DepressionQuestionnaire.response,DepressionQuestionnaire.rt,button.started,button.stopped,button.numClicks,button.timesOn,button.timesOff,instructionsText.started,instructionsText.stopped,nextScreen.keys,nextScreen.rt,nextScreen.started,nextScreen.stopped,stimulusInterval,participant,session,date,expName,psychopyVersion,frameRate,
+,,,,,,,,14.470369700000447,None,Sadness,Sadness,choice,"0,1,2,3",None,None,,,,,,,,,,,,,,001,2021_Jul_29_1258,UniformityIllusion,2021.1.4,None,
+,,,,,,,,,,Pessimism,Pessimism,choice,"0,1,2,3",None,None,,,,,,,,,,,,,,001,2021_Jul_29_1258,UniformityIllusion,2021.1.4,None,
+,,,,,,,,,,,,,,,,15.565280499999062,None,1,[2.275745499999175],[2.27575059999981],17.790818800000125,None,space,1.1932034000001295,17.790818800000125,None,,,001,2021_Jul_29_1258,UniformityIllusion,2021.1.4,None,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,3,,,,,,,
