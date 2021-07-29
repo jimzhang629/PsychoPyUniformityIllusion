@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on July 22, 2021, at 14:47
+    on July 29, 2021, at 09:51
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -18,14 +18,14 @@ from psychopy import prefs
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
-                                
+
 import numpy as np  # whole numpy lib is available, prepend 'np.'
 from numpy import (sin, cos, tan, log, log10, pi, average,
                    sqrt, std, deg2rad, rad2deg, linspace, asarray)
 from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
-
+import math
 from psychopy.hardware import keyboard
 
 
@@ -145,13 +145,27 @@ noPeriphery = visual.ImageStim(
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-3.0)
+final = visual.ImageStim(
+    win=win,
+    name='final', 
+    image='sin', mask=None,
+    ori=0.0, pos=(0, 0), size=None,
+    color=[1,1,1], colorSpace='rgb', opacity=1.0,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-4.0)
+blank_screen = visual.Rect(
+    win=win, name='blank_screen',
+    width=(2,2)[0], height=(2,2)[1],
+    ori=0.0, pos=(0, 0),
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=1.0, depth=-5.0, interpolate=True)
 text = visual.TextStim(win=win, name='text',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-4.0);
+    depth=-6.0);
 
 # Initialize components for Routine "Welcome"
 WelcomeClock = core.Clock()
@@ -172,7 +186,7 @@ hasPeriphery_2 = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=0.0)
+    texRes=128.0, interpolate=True, depth=-1.0)
 key_resp_2 = keyboard.Keyboard()
 noPeriphery_2 = visual.ImageStim(
     win=win,
@@ -181,14 +195,14 @@ noPeriphery_2 = visual.ImageStim(
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-2.0)
+    texRes=128.0, interpolate=True, depth=-3.0)
 text_2 = visual.TextStim(win=win, name='text_2',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=-4.0);
 
 # Initialize components for Routine "Thanks_"
 Thanks_Clock = core.Clock()
@@ -483,13 +497,16 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
     # update component parameters for each repeat
     stimulusInterval = randint(low = 2, high = 4) # choose a value
     thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
-    hasPeriphery.setImage(endImage)
+    hasPeriphery.setImage(midImage)
     key_resp.keys = []
     key_resp.rt = []
     _key_resp_allKeys = []
     noPeriphery.setImage(startImage)
+    final.setImage(endImage)
+    blank_screen.setFillColor('black')
+    blank_screen.setLineColor(win.color)
     # keep track of which components have finished
-    Practice_TrialsComponents = [hasPeriphery, key_resp, noPeriphery, text]
+    Practice_TrialsComponents = [hasPeriphery, key_resp, noPeriphery, final, blank_screen, text]
     for thisComponent in Practice_TrialsComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -512,8 +529,11 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
+        
+
+        
         # *hasPeriphery* updates
-        if hasPeriphery.status == NOT_STARTED and tThisFlip >= stimulusInterval-frameTolerance:
+        if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
             hasPeriphery.frameNStart = frameN  # exact frame index
             hasPeriphery.tStart = t  # local t and not account for scr refresh
@@ -529,7 +549,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 win.timeOnFlip(hasPeriphery, 'tStopRefresh')  # time at next scr refresh
                 hasPeriphery.setAutoDraw(False)
         if hasPeriphery.status == STARTED:  # only update if drawing
-            hasPeriphery.setOpacity(frameN/10)
+            hasPeriphery.setOpacity(frameN/(10 * stimulusInterval))
         
         # *key_resp* updates
         waitOnFlip = False
@@ -569,8 +589,45 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 noPeriphery.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(noPeriphery, 'tStopRefresh')  # time at next scr refresh
                 noPeriphery.setAutoDraw(False)
-        if noPeriphery.status == STARTED and tThisFlip >= stimulusInterval-frameTolerance:  # only update if drawing
-            noPeriphery.setOpacity(1-frameN/10)
+        if noPeriphery.status == STARTED:  # only update if drawing
+            noPeriphery.setOpacity(1-frameN/(10 * stimulusInterval))
+        
+        # *final* updates
+        if final.status == NOT_STARTED and frameN >= 10 * stimulusInterval:
+            # keep track of start time/frame for later
+            final.frameNStart = frameN  # exact frame index
+            final.tStart = t  # local t and not account for scr refresh
+            final.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(final, 'tStartRefresh')  # time at next scr refresh
+            final.setAutoDraw(True)
+        if final.status == STARTED:
+            final.setOpacity((math.floor(frameN/7)) / 10)
+        if final.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > final.tStartRefresh + 12.0-frameTolerance:
+                # keep track of stop time/frame for later
+                final.tStop = t  # not accounting for scr refresh
+                final.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(final, 'tStopRefresh')  # time at next scr refresh
+                final.setAutoDraw(False)
+        print(frameN % 7)
+        # *blank_screen* updates
+        if blank_screen.status == NOT_STARTED and frameN >= 10 * stimulusInterval and frameN % 7 == 0 and t < 10.0:
+            # keep track of start time/frame for later
+            blank_screen.frameNStart = frameN  # exact frame index
+            blank_screen.tStart = t  # local t and not account for scr refresh
+            blank_screen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(blank_screen, 'tStartRefresh')  # time at next scr refresh
+            blank_screen.setAutoDraw(True)
+        if blank_screen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > blank_screen.tStartRefresh + 0.1-frameTolerance:
+                # keep track of stop time/frame for later
+                blank_screen.tStop = t  # not accounting for scr refresh
+                blank_screen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(blank_screen, 'tStopRefresh')  # time at next scr refresh
+                blank_screen.setAutoDraw(False)
+                blank_screen.status = NOT_STARTED
         
         # *text* updates
         if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -614,6 +671,10 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
     PracticeTrialsLoop.addData('key_resp.stopped', key_resp.tStopRefresh)
     PracticeTrialsLoop.addData('noPeriphery.started', noPeriphery.tStartRefresh)
     PracticeTrialsLoop.addData('noPeriphery.stopped', noPeriphery.tStopRefresh)
+    PracticeTrialsLoop.addData('final.started', final.tStartRefresh)
+    PracticeTrialsLoop.addData('final.stopped', final.tStopRefresh)
+    PracticeTrialsLoop.addData('blank_screen.started', blank_screen.tStartRefresh)
+    PracticeTrialsLoop.addData('blank_screen.stopped', blank_screen.tStopRefresh)
     PracticeTrialsLoop.addData('text.started', text.tStartRefresh)
     PracticeTrialsLoop.addData('text.stopped', text.tStopRefresh)
     # the Routine "Practice_Trials" was not non-slip safe, so reset the non-slip timer
@@ -714,6 +775,8 @@ for thisTestTrialsLoop in TestTrialsLoop:
     # ------Prepare to start Routine "Test_Trials"-------
     continueRoutine = True
     # update component parameters for each repeat
+    stimulusInterval = randint(low = 1, high = 9) # choose a value
+    thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
     hasPeriphery_2.setImage(endImage)
     key_resp_2.keys = []
     key_resp_2.rt = []
@@ -760,7 +823,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
                 win.timeOnFlip(hasPeriphery_2, 'tStopRefresh')  # time at next scr refresh
                 hasPeriphery_2.setAutoDraw(False)
         if hasPeriphery_2.status == STARTED:  # only update if drawing
-            hasPeriphery_2.setOpacity(frameN/10)
+            hasPeriphery_2.setOpacity(frameN/(10 * stimulusInterval))
         
         # *key_resp_2* updates
         waitOnFlip = False
@@ -801,7 +864,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
                 win.timeOnFlip(noPeriphery_2, 'tStopRefresh')  # time at next scr refresh
                 noPeriphery_2.setAutoDraw(False)
         if noPeriphery_2.status == STARTED:  # only update if drawing
-            noPeriphery_2.setOpacity(1-frameN/10)
+            noPeriphery_2.setOpacity(1-frameN/(10 * stimulusInterval))
         
         # *text_2* updates
         if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
