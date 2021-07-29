@@ -27,6 +27,85 @@ import sys  # to get file system encoding
 from psychopy.hardware import keyboard
 import math
 
+import zmq
+from msgpack import loads
+import msgpack as serializer
+from time import sleep, time
+
+#setup pupil remote
+context = zmq.Context()
+# open a req port to talk to pupil
+addr = "127.0.0.1"  # remote ip or localhost
+req_port = "50020"  # same as in the pupil remote gui
+req = context.socket(zmq.REQ)
+req.connect("tcp://{}:{}".format(addr, req_port))
+
+# ask for the sub port
+req.send_string("SUB_PORT")
+sub_port = req.recv_string()
+
+
+# PUB socket
+req.send_string("PUB_PORT")
+pub_port = req.recv_string()
+pub_socket = zmq.Socket(context, zmq.PUB)
+pub_socket.connect("tcp://127.0.0.1:{}".format(pub_port))
+
+# open a sub port to listen to pupil
+sub = context.socket(zmq.SUB)
+sub.connect("tcp://{}:{}".format(addr, sub_port))
+sub.setsockopt_string(zmq.SUBSCRIBE, "surface")
+
+
+# specify the name of the surface you want to use
+surface_name = "monitor"
+is_gaze_on_surface = True
+
+#set pupil time to psychopy time
+pupil_time = core.Clock()
+time_fn = pupil_time.getTime
+req.send_string("T" + str(time_fn()))
+print(req.recv_string())
+# Ensure that relative paths start from the same directory as this script
+_thisDir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(_thisDir)
+
+def notify(pupil_remote, notification):
+    """Sends ``notification`` to Pupil Remote"""
+    topic = "notify." + notification["subject"]
+    payload = serializer.dumps(notification, use_bin_type=True)
+    pupil_remote.send_string(topic, flags=zmq.SNDMORE)
+    pupil_remote.send(payload)
+    return pupil_remote.recv_string()
+
+
+def send_trigger(pub_socket, trigger):
+    """Sends annotation via PUB port"""
+    payload = serializer.dumps(trigger, use_bin_type=True)
+    pub_socket.send_string(trigger["topic"], flags=zmq.SNDMORE)
+    pub_socket.send(payload)
+
+
+def new_trigger(label, duration, timestamp):
+    """Creates a new trigger/annotation to send to Pupil Capture"""
+    return {
+        "topic": "annotation",
+        "label": label,
+        "timestamp": timestamp,
+        "duration": duration,
+    }
+    
+# Start the annotations plugin
+notify(
+        req,
+        {"subject": "start_plugin", "name": "Annotation_Capture", "args": {}},
+    )
+
+#req.send_string('C')
+
+#start recording
+req.send_string('R')
+req.recv_string()
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -241,6 +320,12 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 WelcomeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
+#save this timestamp as the beginning of the experiment
+label = "start experiment"
+duration = 0.0
+minimal_trigger = new_trigger(label, duration, time_fn())
+send_trigger(pub_socket, minimal_trigger)
+sleep(1)  # sleep for a few seconds, can be less
 
 # -------Run Routine "Welcome"-------
 while continueRoutine and routineTimer.getTime() > 0:
@@ -540,8 +625,35 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         tThisFlip = win.getFutureFlipTime(clock=TrialsClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
         
+        #read from remote pupil data and check if they looking at the surface
+        topic = sub.recv_string()
+        msg = sub.recv()  # bytes
+        surfaces = loads(msg, raw=False)
+        filtered_surface = {
+            k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
+        }
+        
+        try:
+            # note that we may have more than one gaze position data point (this is expected behavior)
+            gaze_positions = filtered_surface["gaze_on_surfaces"]
+            for gaze_pos in gaze_positions:
+                norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
+
+                # only print normalized gaze positions within the surface bounds
+                if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
+                    is_gaze_on_surface = True
+                else:
+                    is_gaze_on_surface = False
+                    print(norm_gp_x, norm_gp_y)
+        except:
+            pass
+        if is_gaze_on_surface:
+            continueRoutine = True
+        else:
+            continueRoutine = False #end the routine if they look away
+            #print("look at the screen u dummy")
+            
         # *hasPeriphery* updates
         if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
@@ -829,8 +941,35 @@ for thisTestTrialsLoop in TestTrialsLoop:
         tThisFlip = win.getFutureFlipTime(clock=TrialsClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
         
+        #read from remote pupil data and check if they looking at the surface
+        topic = sub.recv_string()
+        msg = sub.recv()  # bytes
+        surfaces = loads(msg, raw=False)
+        filtered_surface = {
+            k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
+        }
+        
+        try:
+            # note that we may have more than one gaze position data point (this is expected behavior)
+            gaze_positions = filtered_surface["gaze_on_surfaces"]
+            for gaze_pos in gaze_positions:
+                norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
+
+                # only print normalized gaze positions within the surface bounds
+                if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
+                    is_gaze_on_surface = True
+                else:
+                    is_gaze_on_surface = False
+                    print(norm_gp_x, norm_gp_y)
+        except:
+            pass
+        if is_gaze_on_surface:
+            continueRoutine = True
+        else:
+            continueRoutine = False #end the routine if they look away
+            #print("look at the screen u dummy")
+            
         # *hasPeriphery* updates
         if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
