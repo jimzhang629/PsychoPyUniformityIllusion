@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on July 28, 2021, at 14:08
+    on July 29, 2021, at 11:03
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -177,32 +177,46 @@ WelcomeText = visual.TextStim(win=win, name='WelcomeText',
     languageStyle='LTR',
     depth=0.0);
 
-# Initialize components for Routine "Test_Trials"
-Test_TrialsClock = core.Clock()
-hasPeriphery_2 = visual.ImageStim(
+# Initialize components for Routine "Practice_Trials"
+Practice_TrialsClock = core.Clock()
+hasPeriphery = visual.ImageStim(
     win=win,
-    name='hasPeriphery_2', 
+    name='hasPeriphery', 
     image='sin', mask=None,
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-1.0)
-key_resp_2 = keyboard.Keyboard()
-noPeriphery_2 = visual.ImageStim(
+key_resp = keyboard.Keyboard()
+noPeriphery = visual.ImageStim(
     win=win,
-    name='noPeriphery_2', 
+    name='noPeriphery', 
     image='sin', mask=None,
     ori=0.0, pos=(0, 0), size=None,
     color=[1,1,1], colorSpace='rgb', opacity=1.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-3.0)
-text_2 = visual.TextStim(win=win, name='text_2',
+final = visual.ImageStim(
+    win=win,
+    name='final', 
+    image='sin', mask=None,
+    ori=0.0, pos=(0, 0), size=None,
+    color=[1,1,1], colorSpace='rgb', opacity=(math.floor(frameN/7)) / 100,
+    flipHoriz=False, flipVert=False,
+    texRes=128.0, interpolate=True, depth=-4.0)
+blank_screen = visual.Rect(
+    win=win, name='blank_screen',
+    width=(2,2)[0], height=(2,2)[1],
+    ori=0.0, pos=(0, 0),
+    lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
+    opacity=1.0, depth=-5.0, interpolate=True)
+text = visual.TextStim(win=win, name='text',
     text='+',
     font='Open Sans',
     pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
     color='red', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-4.0);
+    depth=-6.0);
 
 # Initialize components for Routine "Thanks_"
 Thanks_Clock = core.Clock()
@@ -631,6 +645,14 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
             text.setAutoDraw(True)
+        if text.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > text.tStartRefresh + 12.0-frameTolerance:
+                # keep track of stop time/frame for later
+                text.tStop = t  # not accounting for scr refresh
+                text.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
+                text.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -766,19 +788,22 @@ for thisTestTrialsLoop in TestTrialsLoop:
         for paramName in thisTestTrialsLoop:
             exec('{} = thisTestTrialsLoop[paramName]'.format(paramName))
     
-    # ------Prepare to start Routine "Test_Trials"-------
+    # ------Prepare to start Routine "Practice_Trials"-------
     continueRoutine = True
     # update component parameters for each repeat
-    stimulusInterval = randint(low = 1, high = 9) # choose a value
+    stimulusInterval = randint(low = 2, high = 4) # choose a value
     thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
-    hasPeriphery_2.setImage(endImage)
-    key_resp_2.keys = []
-    key_resp_2.rt = []
-    _key_resp_2_allKeys = []
-    noPeriphery_2.setImage(startImage)
+    hasPeriphery.setImage(midImage)
+    key_resp.keys = []
+    key_resp.rt = []
+    _key_resp_allKeys = []
+    noPeriphery.setImage(startImage)
+    final.setImage(endImage)
+    blank_screen.setFillColor('black')
+    blank_screen.setLineColor(win.color)
     # keep track of which components have finished
-    Test_TrialsComponents = [hasPeriphery_2, key_resp_2, noPeriphery_2, text_2]
-    for thisComponent in Test_TrialsComponents:
+    Practice_TrialsComponents = [hasPeriphery, key_resp, noPeriphery, final, blank_screen, text]
+    for thisComponent in Practice_TrialsComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -788,86 +813,128 @@ for thisTestTrialsLoop in TestTrialsLoop:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    Test_TrialsClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    Practice_TrialsClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "Test_Trials"-------
+    # -------Run Routine "Practice_Trials"-------
     while continueRoutine:
         # get current time
-        t = Test_TrialsClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=Test_TrialsClock)
+        t = Practice_TrialsClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=Practice_TrialsClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *hasPeriphery_2* updates
-        if hasPeriphery_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # *hasPeriphery* updates
+        if hasPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            hasPeriphery_2.frameNStart = frameN  # exact frame index
-            hasPeriphery_2.tStart = t  # local t and not account for scr refresh
-            hasPeriphery_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(hasPeriphery_2, 'tStartRefresh')  # time at next scr refresh
-            hasPeriphery_2.setAutoDraw(True)
-        if hasPeriphery_2.status == STARTED:
+            hasPeriphery.frameNStart = frameN  # exact frame index
+            hasPeriphery.tStart = t  # local t and not account for scr refresh
+            hasPeriphery.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(hasPeriphery, 'tStartRefresh')  # time at next scr refresh
+            hasPeriphery.setAutoDraw(True)
+        if hasPeriphery.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > hasPeriphery_2.tStartRefresh + 10.0-frameTolerance:
+            if tThisFlipGlobal > hasPeriphery.tStartRefresh + 10.0-frameTolerance:
                 # keep track of stop time/frame for later
-                hasPeriphery_2.tStop = t  # not accounting for scr refresh
-                hasPeriphery_2.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(hasPeriphery_2, 'tStopRefresh')  # time at next scr refresh
-                hasPeriphery_2.setAutoDraw(False)
-        if hasPeriphery_2.status == STARTED:  # only update if drawing
-            hasPeriphery_2.setOpacity(frameN/(10 * stimulusInterval))
+                hasPeriphery.tStop = t  # not accounting for scr refresh
+                hasPeriphery.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(hasPeriphery, 'tStopRefresh')  # time at next scr refresh
+                hasPeriphery.setAutoDraw(False)
+        if hasPeriphery.status == STARTED:  # only update if drawing
+            hasPeriphery.setOpacity(frameN/(10 * stimulusInterval))
         
-        # *key_resp_2* updates
+        # *key_resp* updates
         waitOnFlip = False
-        if key_resp_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            key_resp_2.frameNStart = frameN  # exact frame index
-            key_resp_2.tStart = t  # local t and not account for scr refresh
-            key_resp_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(key_resp_2, 'tStartRefresh')  # time at next scr refresh
-            key_resp_2.status = STARTED
+            key_resp.frameNStart = frameN  # exact frame index
+            key_resp.tStart = t  # local t and not account for scr refresh
+            key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+            key_resp.status = STARTED
             # keyboard checking is just starting
             waitOnFlip = True
-            win.callOnFlip(key_resp_2.clock.reset)  # t=0 on next screen flip
-            win.callOnFlip(key_resp_2.clearEvents, eventType='keyboard')  # clear events on next screen flip
-        if key_resp_2.status == STARTED and not waitOnFlip:
-            theseKeys = key_resp_2.getKeys(keyList=['space'], waitRelease=False)
-            _key_resp_2_allKeys.extend(theseKeys)
-            if len(_key_resp_2_allKeys):
-                key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
-                key_resp_2.rt = _key_resp_2_allKeys[-1].rt
+            win.callOnFlip(key_resp.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if key_resp.status == STARTED and not waitOnFlip:
+            theseKeys = key_resp.getKeys(keyList=['space'], waitRelease=False)
+            _key_resp_allKeys.extend(theseKeys)
+            if len(_key_resp_allKeys):
+                key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                key_resp.rt = _key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
         
-        # *noPeriphery_2* updates
-        if noPeriphery_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # *noPeriphery* updates
+        if noPeriphery.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            noPeriphery_2.frameNStart = frameN  # exact frame index
-            noPeriphery_2.tStart = t  # local t and not account for scr refresh
-            noPeriphery_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(noPeriphery_2, 'tStartRefresh')  # time at next scr refresh
-            noPeriphery_2.setAutoDraw(True)
-        if noPeriphery_2.status == STARTED:
+            noPeriphery.frameNStart = frameN  # exact frame index
+            noPeriphery.tStart = t  # local t and not account for scr refresh
+            noPeriphery.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(noPeriphery, 'tStartRefresh')  # time at next scr refresh
+            noPeriphery.setAutoDraw(True)
+        if noPeriphery.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > noPeriphery_2.tStartRefresh + 10.0-frameTolerance:
+            if tThisFlipGlobal > noPeriphery.tStartRefresh + 10.0-frameTolerance:
                 # keep track of stop time/frame for later
-                noPeriphery_2.tStop = t  # not accounting for scr refresh
-                noPeriphery_2.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(noPeriphery_2, 'tStopRefresh')  # time at next scr refresh
-                noPeriphery_2.setAutoDraw(False)
-        if noPeriphery_2.status == STARTED:  # only update if drawing
-            noPeriphery_2.setOpacity(1-frameN/(10 * stimulusInterval))
+                noPeriphery.tStop = t  # not accounting for scr refresh
+                noPeriphery.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(noPeriphery, 'tStopRefresh')  # time at next scr refresh
+                noPeriphery.setAutoDraw(False)
+        if noPeriphery.status == STARTED:  # only update if drawing
+            noPeriphery.setOpacity(1-frameN/(10 * stimulusInterval))
         
-        # *text_2* updates
-        if text_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # *final* updates
+        if final.status == NOT_STARTED and frameN >= 10 * stimulusInterval:
             # keep track of start time/frame for later
-            text_2.frameNStart = frameN  # exact frame index
-            text_2.tStart = t  # local t and not account for scr refresh
-            text_2.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_2, 'tStartRefresh')  # time at next scr refresh
-            text_2.setAutoDraw(True)
+            final.frameNStart = frameN  # exact frame index
+            final.tStart = t  # local t and not account for scr refresh
+            final.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(final, 'tStartRefresh')  # time at next scr refresh
+            final.setAutoDraw(True)
+        if final.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > final.tStartRefresh + 12.0-frameTolerance:
+                # keep track of stop time/frame for later
+                final.tStop = t  # not accounting for scr refresh
+                final.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(final, 'tStopRefresh')  # time at next scr refresh
+                final.setAutoDraw(False)
+        
+        # *blank_screen* updates
+        if blank_screen.status == NOT_STARTED and frameN >= 0.0:
+            # keep track of start time/frame for later
+            blank_screen.frameNStart = frameN  # exact frame index
+            blank_screen.tStart = t  # local t and not account for scr refresh
+            blank_screen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(blank_screen, 'tStartRefresh')  # time at next scr refresh
+            blank_screen.setAutoDraw(True)
+        if blank_screen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > blank_screen.tStartRefresh + 0.1-frameTolerance:
+                # keep track of stop time/frame for later
+                blank_screen.tStop = t  # not accounting for scr refresh
+                blank_screen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(blank_screen, 'tStopRefresh')  # time at next scr refresh
+                blank_screen.setAutoDraw(False)
+        
+        # *text* updates
+        if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text.frameNStart = frameN  # exact frame index
+            text.tStart = t  # local t and not account for scr refresh
+            text.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
+            text.setAutoDraw(True)
+        if text.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > text.tStartRefresh + 12.0-frameTolerance:
+                # keep track of stop time/frame for later
+                text.tStop = t  # not accounting for scr refresh
+                text.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
+                text.setAutoDraw(False)
         
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -877,7 +944,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in Test_TrialsComponents:
+        for thisComponent in Practice_TrialsComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -886,25 +953,29 @@ for thisTestTrialsLoop in TestTrialsLoop:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "Test_Trials"-------
-    for thisComponent in Test_TrialsComponents:
+    # -------Ending Routine "Practice_Trials"-------
+    for thisComponent in Practice_TrialsComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    TestTrialsLoop.addData('hasPeriphery_2.started', hasPeriphery_2.tStartRefresh)
-    TestTrialsLoop.addData('hasPeriphery_2.stopped', hasPeriphery_2.tStopRefresh)
+    TestTrialsLoop.addData('hasPeriphery.started', hasPeriphery.tStartRefresh)
+    TestTrialsLoop.addData('hasPeriphery.stopped', hasPeriphery.tStopRefresh)
     # check responses
-    if key_resp_2.keys in ['', [], None]:  # No response was made
-        key_resp_2.keys = None
-    TestTrialsLoop.addData('key_resp_2.keys',key_resp_2.keys)
-    if key_resp_2.keys != None:  # we had a response
-        TestTrialsLoop.addData('key_resp_2.rt', key_resp_2.rt)
-    TestTrialsLoop.addData('key_resp_2.started', key_resp_2.tStartRefresh)
-    TestTrialsLoop.addData('key_resp_2.stopped', key_resp_2.tStopRefresh)
-    TestTrialsLoop.addData('noPeriphery_2.started', noPeriphery_2.tStartRefresh)
-    TestTrialsLoop.addData('noPeriphery_2.stopped', noPeriphery_2.tStopRefresh)
-    TestTrialsLoop.addData('text_2.started', text_2.tStartRefresh)
-    TestTrialsLoop.addData('text_2.stopped', text_2.tStopRefresh)
-    # the Routine "Test_Trials" was not non-slip safe, so reset the non-slip timer
+    if key_resp.keys in ['', [], None]:  # No response was made
+        key_resp.keys = None
+    TestTrialsLoop.addData('key_resp.keys',key_resp.keys)
+    if key_resp.keys != None:  # we had a response
+        TestTrialsLoop.addData('key_resp.rt', key_resp.rt)
+    TestTrialsLoop.addData('key_resp.started', key_resp.tStartRefresh)
+    TestTrialsLoop.addData('key_resp.stopped', key_resp.tStopRefresh)
+    TestTrialsLoop.addData('noPeriphery.started', noPeriphery.tStartRefresh)
+    TestTrialsLoop.addData('noPeriphery.stopped', noPeriphery.tStopRefresh)
+    TestTrialsLoop.addData('final.started', final.tStartRefresh)
+    TestTrialsLoop.addData('final.stopped', final.tStopRefresh)
+    TestTrialsLoop.addData('blank_screen.started', blank_screen.tStartRefresh)
+    TestTrialsLoop.addData('blank_screen.stopped', blank_screen.tStopRefresh)
+    TestTrialsLoop.addData('text.started', text.tStartRefresh)
+    TestTrialsLoop.addData('text.stopped', text.tStopRefresh)
+    # the Routine "Practice_Trials" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
