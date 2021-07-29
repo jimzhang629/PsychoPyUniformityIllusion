@@ -591,7 +591,24 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 noPeriphery.setAutoDraw(False)
         if noPeriphery.status == STARTED:  # only update if drawing
             noPeriphery.setOpacity(1-frameN/(10 * stimulusInterval))
-        
+            
+        if blank_screen.status == NOT_STARTED and frameN >= 10 * stimulusInterval and frameN % 7 == 0 and t < 10.0:
+            # keep track of start time/frame for later
+            blank_screen.frameNStart = frameN  # exact frame index
+            blank_screen.tStart = t  # local t and not account for scr refresh
+            blank_screen.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(blank_screen, 'tStartRefresh')  # time at next scr refresh
+            blank_screen.setAutoDraw(True)
+        if blank_screen.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > blank_screen.tStartRefresh + 0.1-frameTolerance:
+                # keep track of stop time/frame for later
+                blank_screen.tStop = t  # not accounting for scr refresh
+                blank_screen.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(blank_screen, 'tStopRefresh')  # time at next scr refresh
+                blank_screen.setAutoDraw(False)
+                blank_screen.status = NOT_STARTED
+                
         # *final* updates
         if final.status == NOT_STARTED and frameN >= 10 * stimulusInterval:
             # keep track of start time/frame for later
@@ -612,22 +629,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
                 final.setAutoDraw(False)
         print(frameN % 7)
         # *blank_screen* updates
-        if blank_screen.status == NOT_STARTED and frameN >= 10 * stimulusInterval and frameN % 7 == 0 and t < 10.0:
-            # keep track of start time/frame for later
-            blank_screen.frameNStart = frameN  # exact frame index
-            blank_screen.tStart = t  # local t and not account for scr refresh
-            blank_screen.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(blank_screen, 'tStartRefresh')  # time at next scr refresh
-            blank_screen.setAutoDraw(True)
-        if blank_screen.status == STARTED:
-            # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > blank_screen.tStartRefresh + 0.1-frameTolerance:
-                # keep track of stop time/frame for later
-                blank_screen.tStop = t  # not accounting for scr refresh
-                blank_screen.frameNStop = frameN  # exact frame index
-                win.timeOnFlip(blank_screen, 'tStopRefresh')  # time at next scr refresh
-                blank_screen.setAutoDraw(False)
-                blank_screen.status = NOT_STARTED
+        
         
         # *text* updates
         if text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -637,7 +639,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
             text.setAutoDraw(True)
-        
+        if t > 12:
+            continueRoutine = False
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()

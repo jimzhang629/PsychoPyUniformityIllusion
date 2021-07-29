@@ -637,7 +637,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text, 'tStartRefresh')  # time at next scr refresh
             text.setAutoDraw(True)
-        
+        if t > 12:
+            continueRoutine = False
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
