@@ -128,7 +128,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expNa
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\UniformityIllusionPsychoPy\\UniformityIllusion.py',
+    originPath='C:\\Users\\hesselmann\\Desktop\\PsychoPyUniformityIllusion\\source_code\\UniformityIllusion.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -1162,6 +1162,9 @@ for thisTestTrialsLoop in TestTrialsLoop:
     
 # completed 1.0 repeats of 'TestTrialsLoop'
 
+#stop recording
+req.send_string('r')
+req.recv_string()
 
 # ------Prepare to start Routine "Thanks_"-------
 continueRoutine = True
