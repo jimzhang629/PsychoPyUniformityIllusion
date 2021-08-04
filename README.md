@@ -18,7 +18,7 @@ This is a PsychoPy study that utilizes the Pupil Core eye tracker to measure the
 
 <ins> Pics </ins> - The stimuli files. If the name starts with web, it is optimized for web use.
 
-<ins> Data v - The data is saved here as .log, .psydat, and .csv. Supposedly, .psydat is the best for data analysis. https://www.psychopy.org/general/dataOutputs.html#excelfile
+<ins> Data </ins> - The data is saved here as .log, .psydat, and .csv. Supposedly, .psydat is the best for data analysis. https://www.psychopy.org/general/dataOutputs.html#excelfile
 
 <ins> pupil_dilation_analysis.ipynb </ins> - Example code for how to get the pupil dilation data around each key press. Note that you'll need Jupyter Notebook, DeepNote, Google Colab, or similar software to open this file.
 
