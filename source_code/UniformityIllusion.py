@@ -32,6 +32,10 @@ import sys  # to get file system encoding
 from psychopy.hardware import keyboard
 import math
 
+'''
+Import the necessary modules for pupil remote. Then, connect to pupil remote and specify surface name.
+'''
+
 import zmq
 from msgpack import loads
 import msgpack as serializer
