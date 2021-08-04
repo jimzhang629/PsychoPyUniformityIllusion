@@ -26,6 +26,8 @@ pupil_dilation_analysis.ipynb - Example code for how to get the pupil dilation d
 
 
 PsychoPy - https://www.psychopy.org/download.html
+
 Python 3 (recommend getting Anaconda) - https://www.anaconda.com/products/individual
+
 Pupil Player, Capture, Service - https://docs.pupil-labs.com/core/#_1-put-on-pupil-core
 
