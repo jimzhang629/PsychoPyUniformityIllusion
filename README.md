@@ -8,7 +8,7 @@ HowToRunTheStudy.docx - This word document contains screenshots and instructions
 
 UniformityIllusion.psyexp - This is the Builder view. This does not have eye tracker integration, so only use it for adding new components to the study. Then, convert to coder view and reinsert the Pupil Core code. Do not run the study from this view.
 
-UniformityIllusion.py - This is the Coder view. Run the experiment using this file. You can run it from the terminal, or from the PsychoPy Coder. Make sure to open Pupil Capture, put on the eye tracker, and gaze at the monitor before running this code, otherwise it will not work.
+UniformityIllusion.py - This is the Coder view. Run the experiment using this file. You can run it from the terminal, or from the PsychoPy Coder. Make sure to open Pupil Capture, put on and calibrate the eye tracker, and gaze at the monitor before running this code, otherwise it will not work.
 
 UniformityIllusion_lastrun.py - This is the coder view that is automatically generated when you run the experiment from the Builder view. Do not run the experiment from this file.
 
