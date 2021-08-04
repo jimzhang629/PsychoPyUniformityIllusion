@@ -9,7 +9,12 @@ If you publish work using this script the most relevant publication is:
         https://doi.org/10.3758/s13428-018-01193-y
 """
 
+
 from __future__ import absolute_import, division
+
+"""
+WARNING: IF YOU COMPILE THE BUILDER EXPERIMENT TO PYTHON THAT IT WILL OVERWRITE THIS CODE. It can be recovered by redownloading from Github.
+"""
 
 from psychopy import locale_setup
 from psychopy import prefs
