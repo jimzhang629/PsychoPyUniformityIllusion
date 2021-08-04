@@ -4,7 +4,7 @@
 This is a PsychoPy study that utilizes the Pupil Core eye tracker to measure the effect of depression and anxiety on perception of the uniformity illusion.
 
 ## Table of Contents
-HowToRunTheStudy.docx - This word document contains screenshots and instructions on how to run the study.
+<ins>HowToRunTheStudy.docx</ins> - This word document contains screenshots and instructions on how to run the study.
 
 UniformityIllusion.psyexp - This is the Builder view. This does not have eye tracker integration, so only use it for adding new components to the study. Then, convert to coder view and reinsert the Pupil Core code. Do not run the study from this view.
 
