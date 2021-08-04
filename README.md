@@ -19,3 +19,5 @@ picPaths.xlsx - The paths to the stimuli images. startImage is always the blank 
 Pics - The stimuli files. If the name starts with web, it is optimized for web use.
 
 Data - The data is saved here as .log, .psydat, and .csv. Supposedly, .psydat is the best for data analysis. https://www.psychopy.org/general/dataOutputs.html#excelfile
+
+pupil_dilation_analysis.ipynb - Example code for how to get the pupil dilation data around each key press.
