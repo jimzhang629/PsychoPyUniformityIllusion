@@ -32,10 +32,6 @@ import sys  # to get file system encoding
 from psychopy.hardware import keyboard
 import math
 
-'''
-Import the necessary modules for pupil remote. Then, connect to pupil remote and specify surface name.
-'''
-
 import zmq
 from msgpack import loads
 import msgpack as serializer
@@ -110,6 +106,7 @@ notify(
         {"subject": "start_plugin", "name": "Annotation_Capture", "args": {}},
     )
 
+#this calibrates Pupil from the code. However, the window view is by default very small and needs to be made big manually, so it is likely better to manually calibrate.
 #req.send_string('C')
 
 #start recording
@@ -329,7 +326,8 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 WelcomeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
-#save this timestamp as the beginning of the experiment
+
+#save this timestamp as the beginning of the experiment. This will be the first annotation.
 label = "start experiment"
 duration = 0.0
 minimal_trigger = new_trigger(label, duration, time_fn())
@@ -603,8 +601,8 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
     continueRoutine = True
     firstFlash = True #start changing to final image on the first flash/blip
     # update component parameters for each repeat
-    stimulusInterval = randint(low = 2, high = 4) # choose a value
-    thisExp.addData('stimulusInterval', stimulusInterval) # record it in the data file
+    stimulusInterval = randint(low = 2, high = 4) # randomly choose an integer between 2 and 4 as the fade in time. This can also be changed to a float using a different random function.
+    thisExp.addData('stimulusInterval', stimulusInterval) # record the fade in time in the data file
     hasPeriphery.setImage(midImage)
     key_resp.keys = []
     key_resp.rt = []
@@ -644,7 +642,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             k: v for k, v in surfaces.items() if surfaces["name"] == surface_name
         }
         
-        is_gaze_on_surface = True
+        is_gaze_on_surface = True #assume they're looking at the surface initially
         
         try:
             # note that we may have more than one gaze position data point (this is expected behavior)
@@ -652,7 +650,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             for gaze_pos in gaze_positions:
                 norm_gp_x, norm_gp_y = gaze_pos["norm_pos"]
 
-                # only print normalized gaze positions within the surface bounds
+                # check the gaze position, if it's not within 0 and 1, then they're not looking at the surface
                 if 0 <= norm_gp_x <= 1 and 0 <= norm_gp_y <= 1:
                     is_gaze_on_surface = True
                 else:
@@ -663,7 +661,7 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
         if is_gaze_on_surface:
             continueRoutine = True
         else:
-            continueRoutine = False #end the routine if they look away
+            continueRoutine = False #end the routine if they look away from the surface
             #print("look at the screen u dummy")
 
 
@@ -730,16 +728,18 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             noPeriphery.setAutoDraw(True)
         if noPeriphery.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > noPeriphery.tStartRefresh + 10.0-frameTolerance:
+            if tThisFlipGlobal > noPeriphery.tStartRefresh + 10.0-frameTolerance: #the 10.0 is how many seconds the noPeriphery image is displayed.
                 # keep track of stop time/frame for later
                 noPeriphery.tStop = t  # not accounting for scr refresh
                 noPeriphery.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(noPeriphery, 'tStopRefresh')  # time at next scr refresh
                 noPeriphery.setAutoDraw(False)
         if noPeriphery.status == STARTED:  # only update if drawing
-            noPeriphery.setOpacity(1-frameN/(10 * stimulusInterval))
+            noPeriphery.setOpacity(1-frameN/(10 * stimulusInterval)) #fade the noPeriphery image over the fade in interval.
+            # This assumes a frame rate of 10 frames per second, but it's not very consistent and should actually be 60...
         
         # *final* updates
+        #assume frame rate of 10 FPS for now, so start when fade in period is over. Start fading in after the first blip starts.
         if final.status == NOT_STARTED and frameN >= 10 * stimulusInterval and firstFlash == False:
             # keep track of start time/frame for later
             final.frameNStart = frameN  # exact frame index
@@ -748,7 +748,11 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             win.timeOnFlip(final, 'tStartRefresh')  # time at next scr refresh
             final.setAutoDraw(True)
         if final.status == STARTED:
-            final.setOpacity((math.floor(frameN/7)) / 10)
+            final.setOpacity((math.floor(frameN/7)) / 10) #this math should be modified once a consistent frame rate is established.
+            '''
+            math.floor returns the largest integer less than or equal to a number. 
+            This is assuming a frame rate of roughly 7, so it will fade in a bit more every second. The division by 10 is to set the opacity step size.
+            '''
         if final.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
             if tThisFlipGlobal > final.tStartRefresh + 12.0-frameTolerance:
@@ -760,6 +764,10 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
     
         # *blank_screen* updates
         if blank_screen.status == NOT_STARTED and frameN >= 10 * stimulusInterval and frameN % 7 == 0 and t < 10.0:
+        '''
+        Only blip if the frame number is perfectly divisible by 7. Assuming a 7 FPS, this means it will blip every second.
+        Stop blips after ten seconds.
+        '''
             # keep track of start time/frame for later
             blank_screen.frameNStart = frameN  # exact frame index
             blank_screen.tStart = t  # local t and not account for scr refresh
@@ -787,13 +795,13 @@ for thisPracticeTrialsLoop in PracticeTrialsLoop:
             text.setAutoDraw(True)
         if text.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > text.tStartRefresh + 12.0-frameTolerance:
+            if tThisFlipGlobal > text.tStartRefresh + 12.0-frameTolerance: #the 12.0 means stop after 12 seconds
                 # keep track of stop time/frame for later
                 text.tStop = t  # not accounting for scr refresh
                 text.frameNStop = frameN  # exact frame index
                 win.timeOnFlip(text, 'tStopRefresh')  # time at next scr refresh
                 text.setAutoDraw(False)
-        if t > 12.0:
+        if t > 12.0: #stop trial after 12 seconds
             continueRoutine = False
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -861,6 +869,8 @@ WelcomeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
 # -------Run Routine "Welcome"-------
+
+#this is just a placeholder text routine for now to separate the practice and test trials.
 while continueRoutine and routineTimer.getTime() > 0:
     # get current time
     t = WelcomeClock.getTime()
@@ -923,7 +933,7 @@ if thisTestTrialsLoop != None:
         exec('{} = thisTestTrialsLoop[paramName]'.format(paramName))
 
 for thisTestTrialsLoop in TestTrialsLoop:
-    firstFlash = True
+    firstFlash = True #set the first blip to be true initially, so that the final image doesn't immediately start fading in.
     currentLoop = TestTrialsLoop
     # abbreviate parameter names if possible (e.g. rgb = thisTestTrialsLoop.rgb)
     if thisTestTrialsLoop != None:
@@ -931,6 +941,7 @@ for thisTestTrialsLoop in TestTrialsLoop:
             exec('{} = thisTestTrialsLoop[paramName]'.format(paramName))
     
     # ------Prepare to start Routine "Trials"-------
+    #Repeat what was done for practice trials, but now for test trials.
     continueRoutine = True
     # update component parameters for each repeat
     stimulusInterval = randint(low = 2, high = 4) # choose a value
