@@ -27,11 +27,11 @@ This is a PsychoPy study that utilizes the Pupil Core eye tracker to measure the
 ## Required Packages And Installation
 
 
-PsychoPy - https://www.psychopy.org/download.html
+<ins> PsychoPy </ins> - https://www.psychopy.org/download.html
 
-Python 3 (recommend getting Anaconda) - https://www.anaconda.com/products/individual
+<ins> Python 3 </ins> (recommend getting Anaconda) - https://www.anaconda.com/products/individual
 
-Pupil Player, Capture, Service - https://docs.pupil-labs.com/core/#_1-put-on-pupil-core
+<ins> Pupil Player, Capture, Service </ins> - https://docs.pupil-labs.com/core/#_1-put-on-pupil-core
 
 
 In order to get this code running on another computer, do the following steps.
