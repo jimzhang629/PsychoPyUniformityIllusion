@@ -20,8 +20,9 @@ Pics - The stimuli files. If the name starts with web, it is optimized for web u
 
 Data - The data is saved here as .log, .psydat, and .csv. Supposedly, .psydat is the best for data analysis. https://www.psychopy.org/general/dataOutputs.html#excelfile
 
-pupil_dilation_analysis.ipynb - Example code for how to get the pupil dilation data around each key press.
-requirements.txt - Required additional python packages needed
+pupil_dilation_analysis.ipynb - Example code for how to get the pupil dilation data around each key press. Note that you'll need Jupyter Notebook, DeepNote, Google Colab, or similar software to open this file.
+
+requirements.txt - Additional python dependencies needed. 
 
 ## Required Packages And Installation
 
@@ -36,10 +37,15 @@ Pupil Player, Capture, Service - https://docs.pupil-labs.com/core/#_1-put-on-pup
 In order to get this code running on another computer, do the following steps.
 
 1. Download PsychoPy, Python 3, and Pupil Apps
-2. Clone this repository by running the following code in the terminal in the location where you want the code folder to be saved.
-   '''
-   $git clone 
-   '''
+2. Clone this repository by running the following code in the terminal. Make sure to change your directory to where you want to save it.
+   ```
+   $git clone https://github.com/jimzhang629/PsychoPyUniformityIllusion.git
+   ```
+3. Download the required Python dependencies by running the following code in the cloned repository
+   ```
+   $pip install -r requirements.txt
+   ```
+   
     
 
 
